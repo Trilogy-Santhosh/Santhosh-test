@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Test App - Santhosh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Welcome to My Test App</h1>
+            <p>Created by Santhosh M</p>
+        </header>
+        
+        <main>
+            <div class="card">
+                <h2>Interactive Counter</h2>
+                <div class="counter-display">
+                    <span id="count">0</span>
+                </div>
+                <div class="buttons">
+                    <button id="decrease" class="btn btn-danger">-</button>
+                    <button id="reset" class="btn btn-secondary">Reset</button>
+                    <button id="increase" class="btn btn-success">+</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Color Changer</h2>
+                <div class="color-display" id="colorBox"></div>
+                <div class="buttons">
+                    <button id="red" class="btn btn-red">Red</button>
+                    <button id="blue" class="btn btn-blue">Blue</button>
+                    <button id="green" class="btn btn-green">Green</button>
+                    <button id="random" class="btn btn-random">Random</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Todo List</h2>
+                <div class="todo-input">
+                    <input type="text" id="todoInput" placeholder="Add a new task...">
+                    <button id="addTodo" class="btn btn-primary">Add</button>
+                </div>
+                <ul id="todoList" class="todo-list"></ul>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Built with ❤️ using HTML, CSS, and JavaScript</p>
+            <p>Last updated: <span id="lastUpdated"></span></p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
