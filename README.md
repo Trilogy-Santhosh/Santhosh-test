@@ -1,24 +1,31 @@
-# 🚀 My Test App
+# 🔌 MCP Integration Demo
 
-A simple, interactive web application created by Santhosh M to test Cursor and GitHub integration.
+A comprehensive demonstration tool showcasing Model Context Protocol (MCP) integrations with various services. This application demonstrates how MCP servers can be used to connect AI coding agents like Cursor with external services.
 
 ## ✨ Features
 
-### 🔢 Interactive Counter
-- Increase, decrease, or reset the counter
-- Visual feedback with color changes
-- Keyboard shortcuts available
+### 🐙 GitHub Integration
+- **Repository Search** - Search for repositories using GitHub's API
+- **Repository Details** - Get detailed information about specific repositories
+- **Real-time Results** - Live API responses with loading states
+- **Interactive UI** - Click to explore repositories directly
 
-### 🎨 Color Changer
-- Change the color box to red, blue, green, or random colors
-- Smooth animations and transitions
-- Interactive button effects
+### ☁️ Salesforce Integration
+- **Organization Information** - Get Salesforce org details and configuration
+- **User Information** - Retrieve current user profile and role information
+- **Live Data** - Real-time API responses from Salesforce
+- **Professional Display** - Clean, organized data presentation
 
-### 📝 Todo List
-- Add new tasks
-- Toggle task completion
-- Delete tasks
-- Smooth animations for all interactions
+### ⚙️ MCP Configuration Display
+- **Server Status** - Visual indicators for all configured MCP servers
+- **Connection Status** - Real-time status of each MCP service
+- **Configuration Overview** - Complete MCP setup visualization
+
+### 📡 Live API Response Viewer
+- **JSON Display** - Formatted API responses for debugging
+- **Timestamp Tracking** - When each API call was made
+- **Endpoint Information** - Which service was called
+- **Real-time Updates** - Live response data
 
 ## 🚀 Getting Started
 
@@ -36,100 +43,150 @@ A simple, interactive web application created by Santhosh M to test Cursor and G
 
 2. **Open the application**
    - Simply open `index.html` in your web browser
-   - Or use a local server (optional):
-     ```bash
-     # Using Python
-     python -m http.server 8000
-     
-     # Using Node.js
-     npx serve .
-     
-     # Using PHP
-     php -S localhost:8000
-     ```
+   - Or use a local server: `python -m http.server 8000`
 
-3. **Enjoy the interactive features!**
+3. **Start exploring MCP integrations**
+   - Try the GitHub search functionality
+   - Test the Salesforce integration buttons
+   - View live API responses
 
-## 🎮 How to Use
+## 🔧 MCP Servers Demonstrated
 
-### Counter
-- Click the **+** button to increase
-- Click the **-** button to decrease  
-- Click **Reset** to return to zero
-- **Keyboard shortcuts:**
-  - `Ctrl + +` : Increase counter
-  - `Ctrl + -` : Decrease counter
-  - `Ctrl + R` : Reset counter
+### Working Integrations
+- **GitHub** - Repository search and details
+- **Salesforce** - Organization and user information
 
-### Color Changer
-- Click any color button to change the color box
-- Try the **Random** button for surprise colors!
+### Configured but Demo-Only
+- **AWS Logs** - CloudWatch log analysis
+- **Multi-DB** - Database connectivity
+- **Kayako Tools** - Support ticket management
+- **STAR** - Support ticket assignment and routing
+- **Who Is On** - Agent presence tracking
 
-### Todo List
-- Type a task in the input field
-- Press **Enter** or click **Add** to add the task
-- Click **Toggle** to mark tasks as complete/incomplete
-- Click **Delete** to remove tasks
+## 🏗️ Technical Architecture
 
-## 🛠️ Technologies Used
-
-- **HTML5** - Structure and semantic markup
-- **CSS3** - Styling with modern features (flexbox, gradients, animations)
-- **Vanilla JavaScript** - Interactive functionality
-- **Responsive Design** - Works on desktop and mobile devices
-
-## 📁 Project Structure
-
+### File Structure
 ```
 Santhosh-test/
-├── index.html          # Main HTML file
-├── style.css           # CSS styles and animations
-├── script.js           # JavaScript functionality
-└── README.md           # This file
+├── index.html          # Main application structure
+├── style.css           # Modern styling and animations
+├── script.js           # MCP integration logic
+├── README.md           # This documentation
+└── backup/             # Previous project files
 ```
 
-## 🎨 Design Features
+### Technology Stack
+- **HTML5** - Semantic markup and structure
+- **CSS3** - Modern styling with flexbox, grid, and animations
+- **Vanilla JavaScript** - No framework dependencies
+- **MCP Protocol** - Model Context Protocol integration
 
-- **Modern UI** with gradient backgrounds
-- **Smooth animations** and hover effects
-- **Responsive design** that works on all screen sizes
-- **Interactive feedback** for all user actions
-- **Clean, professional styling**
+### Key Features
+- **Responsive Design** - Works on desktop and mobile
+- **Loading States** - Visual feedback during API calls
+- **Error Handling** - User-friendly error messages
+- **Mock Data** - Simulated API responses for demonstration
+- **Real-time Updates** - Live data display
+
+## 🎯 How It Works
+
+### MCP Integration Flow
+1. **User Interaction** - Click buttons to trigger MCP calls
+2. **Loading State** - Visual feedback during API processing
+3. **MCP Server Call** - Simulated calls to external services
+4. **Data Processing** - Format and structure the response
+5. **UI Update** - Display results in user-friendly format
+6. **API Response** - Show raw JSON for debugging
+
+### Mock Data System
+- **Realistic Responses** - Based on actual API structures
+- **Simulated Delays** - Realistic loading times
+- **Error Scenarios** - Demonstrates error handling
+- **Live Updates** - Dynamic content generation
+
+## 🔍 Usage Examples
+
+### GitHub Integration
+```javascript
+// Search for repositories
+searchGitHubRepos() // Searches for "cursor mcp" by default
+
+// Get repository details
+getRepositoryDetails() // Gets details for GLips/Figma-Context-MCP
+```
+
+### Salesforce Integration
+```javascript
+// Get organization information
+getSalesforceOrgInfo() // Returns org details and configuration
+
+// Get user information
+getSalesforceUserInfo() // Returns current user profile
+```
+
+## 🎨 UI Components
+
+### Cards
+- **GitHub Card** - Repository search and details
+- **Salesforce Card** - Organization and user info
+- **MCP Configuration Card** - Server status overview
+- **API Response Card** - Live JSON display
+
+### Interactive Elements
+- **Search Inputs** - GitHub repository search
+- **Action Buttons** - Trigger MCP integrations
+- **Status Badges** - Visual connection indicators
+- **Loading States** - Animated feedback
 
 ## 🔧 Customization
 
-Feel free to modify this project:
+### Adding New MCP Servers
+1. Add server configuration to `displayMCPConfiguration()`
+2. Create new mock data functions
+3. Add display functions for the new service
+4. Update the UI with new buttons and containers
 
-- **Colors**: Edit the CSS variables in `style.css`
-- **Features**: Add new functionality in `script.js`
-- **Layout**: Modify the HTML structure in `index.html`
-- **Styling**: Customize the design in `style.css`
+### Styling
+- Modify `style.css` for visual changes
+- Update color scheme in CSS variables
+- Add new animations or transitions
+- Customize responsive breakpoints
 
-## 📝 Development Notes
+## 📱 Responsive Design
 
-This project was created to:
-- Test Cursor IDE functionality
-- Practice Git and GitHub integration
-- Demonstrate modern web development techniques
-- Create a fun, interactive learning tool
+- **Desktop** - Full feature set with side-by-side layout
+- **Tablet** - Optimized card layout
+- **Mobile** - Stacked layout with touch-friendly buttons
+
+## 🚀 Future Enhancements
+
+- **Real MCP Integration** - Connect to actual MCP servers
+- **More Services** - Add AWS, database, and other integrations
+- **Authentication** - Add login and token management
+- **Data Persistence** - Save and load configurations
+- **Advanced Filtering** - Search and filter capabilities
 
 ## 🤝 Contributing
 
-This is a personal test project, but feel free to:
-- Fork the repository
-- Create your own version
-- Use it as a starting point for other projects
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the MIT License.
 
-## 👨‍💻 Author
+## 🙏 Acknowledgments
 
-**Santhosh M**
-- Created with ❤️ using Cursor IDE
-- Built for testing and learning purposes
+- **Model Context Protocol** - For the integration framework
+- **Cursor** - For the AI coding environment
+- **GitHub** - For the repository API
+- **Salesforce** - For the CRM integration
 
 ---
 
-*Happy coding! 🎉*
+**Built with ❤️ using MCP (Model Context Protocol)**
+
+*Last updated: September 2024*

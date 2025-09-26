@@ -3,52 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Test App - Santhosh</title>
+    <title>MCP Integration Demo - Santhosh</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🚀 Welcome to My Test App</h1>
-            <p>Created by Santhosh M</p>
+            <h1>🔌 MCP Integration Demo</h1>
+            <p>Demonstrating Model Context Protocol integrations</p>
+            <div class="status-indicator">
+                <span class="status-dot active"></span>
+                <span>MCP Servers Connected</span>
+            </div>
         </header>
         
         <main>
+            <!-- GitHub Integration Demo -->
             <div class="card">
-                <h2>Interactive Counter</h2>
-                <div class="counter-display">
-                    <span id="count">0</span>
+                <div class="card-header">
+                    <h2>🐙 GitHub Integration</h2>
+                    <span class="status-badge working">Working</span>
                 </div>
-                <div class="buttons">
-                    <button id="decrease" class="btn btn-danger">-</button>
-                    <button id="reset" class="btn btn-secondary">Reset</button>
-                    <button id="increase" class="btn btn-success">+</button>
+                <div class="card-content">
+                    <div class="demo-section">
+                        <h3>Search Repositories</h3>
+                        <div class="input-group">
+                            <input type="text" id="githubSearch" placeholder="Search for repositories..." value="cursor mcp">
+                            <button id="searchGithub" class="btn btn-primary">Search</button>
+                        </div>
+                        <div id="githubResults" class="results-container"></div>
+                    </div>
+                    
+                    <div class="demo-section">
+                        <h3>Repository Details</h3>
+                        <div class="input-group">
+                            <input type="text" id="repoOwner" placeholder="Owner" value="GLips">
+                            <input type="text" id="repoName" placeholder="Repository" value="Figma-Context-MCP">
+                            <button id="getRepoDetails" class="btn btn-secondary">Get Details</button>
+                        </div>
+                        <div id="repoDetails" class="results-container"></div>
+                    </div>
                 </div>
             </div>
-            
+
+            <!-- Salesforce Integration Demo -->
             <div class="card">
-                <h2>Color Changer</h2>
-                <div class="color-display" id="colorBox"></div>
-                <div class="buttons">
-                    <button id="red" class="btn btn-red">Red</button>
-                    <button id="blue" class="btn btn-blue">Blue</button>
-                    <button id="green" class="btn btn-green">Green</button>
-                    <button id="random" class="btn btn-random">Random</button>
+                <div class="card-header">
+                    <h2>☁️ Salesforce Integration</h2>
+                    <span class="status-badge working">Working</span>
+                </div>
+                <div class="card-content">
+                    <div class="demo-section">
+                        <h3>Organization Information</h3>
+                        <button id="getOrgInfo" class="btn btn-primary">Get Org Info</button>
+                        <div id="orgInfo" class="results-container"></div>
+                    </div>
+                    
+                    <div class="demo-section">
+                        <h3>User Information</h3>
+                        <button id="getUserInfo" class="btn btn-secondary">Get User Info</button>
+                        <div id="userInfo" class="results-container"></div>
+                    </div>
                 </div>
             </div>
-            
+
+            <!-- MCP Configuration Display -->
             <div class="card">
-                <h2>Todo List</h2>
-                <div class="todo-input">
-                    <input type="text" id="todoInput" placeholder="Add a new task...">
-                    <button id="addTodo" class="btn btn-primary">Add</button>
+                <div class="card-header">
+                    <h2>⚙️ MCP Configuration</h2>
+                    <span class="status-badge info">Info</span>
                 </div>
-                <ul id="todoList" class="todo-list"></ul>
+                <div class="card-content">
+                    <div class="config-display">
+                        <h3>Active MCP Servers</h3>
+                        <div class="server-list">
+                            <div class="server-item">
+                                <span class="server-name">GitHub</span>
+                                <span class="server-status working">Connected</span>
+                            </div>
+                            <div class="server-item">
+                                <span class="server-name">Salesforce</span>
+                                <span class="server-status working">Connected</span>
+                            </div>
+                            <div class="server-item">
+                                <span class="server-name">AWS Logs</span>
+                                <span class="server-status pending">Needs Config</span>
+                            </div>
+                            <div class="server-item">
+                                <span class="server-name">Multi-DB</span>
+                                <span class="server-status pending">Needs Config</span>
+                            </div>
+                            <div class="server-item">
+                                <span class="server-name">Kayako Tools</span>
+                                <span class="server-status pending">Needs Config</span>
+                            </div>
+                            <div class="server-item">
+                                <span class="server-name">STAR</span>
+                                <span class="server-status pending">Needs Config</span>
+                            </div>
+                            <div class="server-item">
+                                <span class="server-name">Who Is On</span>
+                                <span class="server-status pending">Needs Config</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Response Display -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>📡 API Responses</h2>
+                    <span class="status-badge info">Live</span>
+                </div>
+                <div class="card-content">
+                    <div class="response-display">
+                        <pre id="apiResponse">Click any button above to see live API responses...</pre>
+                    </div>
+                </div>
             </div>
         </main>
         
         <footer>
-            <p>Built with ❤️ using HTML, CSS, and JavaScript</p>
+            <p>Built with ❤️ using MCP (Model Context Protocol)</p>
             <p>Last updated: <span id="lastUpdated"></span></p>
         </footer>
     </div>
