@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard - Santhosh</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1><i class="fas fa-tachometer-alt"></i> Personal Dashboard</h1>
+                <div class="user-info">
+                    <span class="user-name">Santhosh M</span>
+                    <span class="current-time" id="currentTime"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Quick Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Projects</h3>
+                        <p class="stat-number" id="projectCount">2</p>
+                        <p class="stat-label">Active</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-github"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Repositories</h3>
+                        <p class="stat-number" id="repoCount">0</p>
+                        <p class="stat-label">GitHub</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Tasks</h3>
+                        <p class="stat-number" id="taskCount">0</p>
+                        <p class="stat-label">Pending</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>Focus Time</h3>
+                        <p class="stat-number" id="focusTime">0m</p>
+                        <p class="stat-label">Today</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                <div class="actions-grid">
+                    <button class="action-btn" onclick="openGitHub()">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </button>
+                    <button class="action-btn" onclick="openCursor()">
+                        <i class="fas fa-code"></i>
+                        <span>Cursor</span>
+                    </button>
+                    <button class="action-btn" onclick="openTerminal()">
+                        <i class="fas fa-terminal"></i>
+                        <span>Terminal</span>
+                    </button>
+                    <button class="action-btn" onclick="startFocus()">
+                        <i class="fas fa-play"></i>
+                        <span>Focus Mode</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <h2><i class="fas fa-history"></i> Recent Activity</h2>
+                <div class="activity-list" id="activityList">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p class="activity-title">Created MCP Integration Demo</p>
+                            <p class="activity-time">2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-folder"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p class="activity-title">Started new project</p>
+                            <p class="activity-time">Just now</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weather Widget -->
+            <section class="weather-widget">
+                <h2><i class="fas fa-cloud-sun"></i> Weather</h2>
+                <div class="weather-content">
+                    <div class="weather-main">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-info">
+                            <p class="temperature">72°F</p>
+                            <p class="condition">Sunny</p>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value">45%</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value">8 mph</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes Section -->
+            <section class="notes-section">
+                <h2><i class="fas fa-sticky-note"></i> Quick Notes</h2>
+                <div class="notes-content">
+                    <textarea 
+                        id="quickNotes" 
+                        placeholder="Write your quick notes here..."
+                        rows="4"
+                    ></textarea>
+                    <div class="notes-actions">
+                        <button class="btn btn-primary" onclick="saveNotes()">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearNotes()">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2024 Santhosh M - Personal Dashboard</p>
+            <div class="footer-links">
+                <a href="#" onclick="refreshDashboard()">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </a>
+                <a href="#" onclick="openSettings()">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
