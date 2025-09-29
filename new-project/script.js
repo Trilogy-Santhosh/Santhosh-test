@@ -106,27 +106,10 @@ function updateDateTime() {
         timeElement.textContent = now.toLocaleTimeString('en-US', timeOptions);
     }
     
-    // Update weather (simulated)
-    updateWeather();
+    // Weather removed - space theme only
 }
 
-function updateWeather() {
-    // Simulate weather data (in a real app, this would come from an API)
-    const weatherData = {
-        temp: Math.floor(Math.random() * 15) + 15, // 15-30°C
-        conditions: ['Sunny', 'Partly Cloudy', 'Cloudy', 'Rainy'][Math.floor(Math.random() * 4)]
-    };
-    
-    const tempElement = document.getElementById('weatherTemp');
-    const descElement = document.getElementById('weatherDesc');
-    
-    if (tempElement) {
-        tempElement.textContent = `${weatherData.temp}°C`;
-    }
-    if (descElement) {
-        descElement.textContent = weatherData.conditions;
-    }
-}
+// Weather functionality removed for space theme
 
 // Copy functions
 function copyCommand(command) {
