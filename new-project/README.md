@@ -1,35 +1,41 @@
-# 🏠 Personal Dashboard
+# 🔧 Developer Reference Hub
 
-A modern, responsive personal dashboard built with HTML, CSS, and JavaScript. This dashboard provides quick access to your daily tools and helps you stay organized and focused.
+A comprehensive reference tool for developers featuring the most commonly used terminal commands, SQL queries, Cursor AI prompts, and project management. Built with modern web technologies and designed for efficiency.
 
 ## ✨ Features
 
-### 📊 Quick Stats
-- **Project Counter** - Track your active projects
-- **Repository Count** - GitHub repository statistics
-- **Task Tracker** - Pending tasks counter
-- **Focus Time** - Daily focus session tracking
+### 🖥️ Terminal Commands
+- **File Operations** - ls, cd, mkdir, cp, rm, find commands
+- **Git Commands** - status, add, commit, push, pull, log
+- **Process Management** - ps, kill, top, nohup
+- **System Information** - df, free, uname, which
+- **One-click Copy** - Copy any command to clipboard instantly
 
-### ⚡ Quick Actions
-- **GitHub** - Quick access to GitHub
-- **Cursor** - Open Cursor IDE
-- **Terminal** - Access terminal
-- **Focus Mode** - Start focused work sessions
+### 🗄️ SQL Queries
+- **Basic Queries** - SELECT, WHERE, COUNT, DISTINCT
+- **Joins** - INNER JOIN, LEFT JOIN examples
+- **Aggregations** - GROUP BY, HAVING, AVG, SUM
+- **Data Modification** - INSERT, UPDATE, DELETE
+- **Syntax Highlighting** - Beautiful code formatting
 
-### 📝 Activity Tracking
-- **Recent Activity** - Track your recent actions
-- **Real-time Updates** - Live activity feed
-- **Visual Indicators** - Icons and timestamps
+### 🎯 Cursor AI Prompts
+- **Code Generation** - React components, API endpoints, database schemas
+- **Code Review** - Performance optimization, security analysis
+- **Testing** - Unit tests, integration tests, E2E tests
+- **Documentation** - API docs, README generation, code comments
+- **Best Practices** - SOLID principles, clean code, refactoring
 
-### 🌤️ Weather Widget
-- **Current Weather** - Temperature and conditions
-- **Weather Details** - Humidity and wind speed
-- **Visual Weather Icons** - Beautiful weather representation
+### 📁 Git Project Management
+- **Project Links** - GitHub repositories and live demos
+- **Project Status** - Active, completed, in-progress tracking
+- **Technology Tags** - Stack information and tools used
+- **Add Projects** - Easy project addition and management
+- **Export Data** - Backup and export project information
 
-### 📋 Quick Notes
-- **Auto-save** - Notes are automatically saved
-- **Local Storage** - Data persists between sessions
-- **Quick Actions** - Save and clear functionality
+### 🌤️ Live Information
+- **Date & Time** - Real-time clock with full date display
+- **Weather** - Temperature in Celsius and conditions
+- **Auto-refresh** - Live updates every second
 
 ## 🚀 Getting Started
 
@@ -44,14 +50,14 @@ A modern, responsive personal dashboard built with HTML, CSS, and JavaScript. Th
    cd new-project
    ```
 
-2. **Open the dashboard**
+2. **Open the reference hub**
    - Simply open `index.html` in your web browser
    - Or use a local server: `python -m http.server 8000`
 
-3. **Start using your dashboard**
-   - Click quick action buttons
-   - Add notes and track activities
-   - Monitor your focus time
+3. **Start using the reference**
+   - Click on different tabs to explore features
+   - Use search to find specific commands or queries
+   - Click copy buttons to copy code to clipboard
 
 ## 🎨 Design Features
 
@@ -62,33 +68,38 @@ A modern, responsive personal dashboard built with HTML, CSS, and JavaScript. Th
 - **Responsive Design** - Works on all screen sizes
 
 ### Interactive Elements
-- **Hover Effects** - Cards lift and glow on hover
-- **Loading States** - Visual feedback for actions
-- **Notifications** - Toast messages for user feedback
-- **Keyboard Shortcuts** - Quick access to functions
+- **Tab Navigation** - Easy switching between sections
+- **Search Functionality** - Real-time search across all content
+- **Copy to Clipboard** - One-click copying with notifications
+- **Keyboard Shortcuts** - Power user features
 
 ## ⌨️ Keyboard Shortcuts
 
-- **Ctrl/Cmd + S** - Save notes
-- **Ctrl/Cmd + F** - Start focus session
-- **Ctrl/Cmd + R** - Refresh dashboard
+- **Ctrl/Cmd + 1-4** - Switch between tabs
+- **Ctrl/Cmd + K** - Focus search box
+- **Escape** - Clear search
 
-## 🔧 Customization
+## 🔧 Usage Examples
 
-### Adding New Quick Actions
-1. Add a new button to the actions grid in `index.html`
-2. Create a corresponding function in `script.js`
-3. Style the button in `style.css`
+### Terminal Commands
+```bash
+# Copy and paste these commands
+ls -la                    # List all files with details
+git status               # Check repository status
+ps aux | grep process    # Find running processes
+```
 
-### Modifying Stats
-1. Update the `updateStats()` function in `script.js`
-2. Add new stat cards to the HTML
-3. Style the new cards in CSS
+### SQL Queries
+```sql
+-- Copy and use these queries
+SELECT * FROM users WHERE active = 1;
+SELECT u.name, o.total FROM users u INNER JOIN orders o ON u.id = o.user_id;
+```
 
-### Changing Colors
-1. Modify the CSS custom properties
-2. Update gradient backgrounds
-3. Adjust color schemes for different themes
+### Cursor Prompts
+```
+Create a responsive React component for a user profile card with avatar, name, email, and edit button. Include proper TypeScript types, CSS modules for styling, and make it mobile-friendly.
+```
 
 ## 📱 Responsive Design
 
@@ -99,10 +110,9 @@ A modern, responsive personal dashboard built with HTML, CSS, and JavaScript. Th
 ## 💾 Data Storage
 
 ### Local Storage
-- **Notes** - Automatically saved and restored
-- **Focus Time** - Tracks daily focus sessions
-- **Tasks** - Simple task management
-- **Activities** - Recent activity history
+- **Projects** - Saved project information
+- **Settings** - User preferences and configurations
+- **Export/Import** - Data backup and restoration
 
 ### Data Persistence
 - All data is stored locally in your browser
@@ -111,38 +121,42 @@ A modern, responsive personal dashboard built with HTML, CSS, and JavaScript. Th
 
 ## 🎯 Use Cases
 
-### Daily Productivity
-- Quick access to frequently used tools
-- Track focus time and productivity
-- Take quick notes and reminders
+### Daily Development
+- Quick access to terminal commands
+- SQL query reference for database work
+- Cursor AI prompts for efficient coding
+- Project management and tracking
 
-### Project Management
-- Monitor active projects
-- Track GitHub repositories
-- Manage tasks and activities
+### Learning & Reference
+- Command syntax and examples
+- SQL query patterns and best practices
+- AI prompt templates for different scenarios
+- Project organization and documentation
 
-### Personal Organization
-- Weather information for planning
-- Activity tracking for insights
-- Notes for quick thoughts
+### Team Collaboration
+- Share common commands and queries
+- Standardize AI prompts across team
+- Track project progress and links
+- Export data for team sharing
 
 ## 🔮 Future Enhancements
 
 ### Planned Features
+- **More Commands** - Additional terminal and system commands
+- **Database Support** - More SQL examples and patterns
+- **AI Integration** - Real Cursor AI integration
+- **Weather API** - Real weather data integration
 - **Theme Switcher** - Dark/light mode toggle
-- **Widget Customization** - Drag and drop layout
-- **Data Export** - Export notes and activities
-- **Integration APIs** - Connect to external services
-- **Task Management** - Full task creation and editing
-- **Calendar Integration** - Schedule and events
-- **Weather API** - Real weather data
-- **Focus Timer** - Pomodoro technique timer
+- **Command History** - Recently used commands tracking
+- **Favorites** - Bookmark frequently used items
+- **Categories** - More organized command categories
 
 ### Technical Improvements
 - **PWA Support** - Install as app
 - **Offline Mode** - Work without internet
 - **Data Sync** - Cloud synchronization
 - **Performance** - Optimize loading and rendering
+- **Accessibility** - Better screen reader support
 
 ## 🤝 Contributing
 
@@ -159,11 +173,12 @@ This project is open source and available under the MIT License.
 ## 🙏 Acknowledgments
 
 - **Font Awesome** - For beautiful icons
+- **Prism.js** - For syntax highlighting
 - **Modern CSS** - For responsive design techniques
 - **Local Storage API** - For data persistence
 
 ---
 
-**Built with ❤️ for productivity and organization**
+**Built with ❤️ for developer productivity**
 
 *Last updated: September 2024*

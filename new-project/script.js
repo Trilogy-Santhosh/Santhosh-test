@@ -1,310 +1,340 @@
-// Personal Dashboard JavaScript
+// Developer Reference Hub JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize dashboard
-    initializeDashboard();
+    // Initialize the application
+    initializeApp();
     
-    // Update time every second
-    setInterval(updateTime, 1000);
+    // Set up event listeners
+    setupEventListeners();
+    
+    // Update time and date
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
     
     // Load saved data
     loadSavedData();
-    
-    // Start focus timer if needed
-    startFocusTimer();
 });
 
-function initializeDashboard() {
-    console.log('Personal Dashboard initialized');
+function initializeApp() {
+    console.log('Developer Reference Hub initialized');
     
-    // Set initial time
-    updateTime();
-    
-    // Initialize stats
-    updateStats();
-    
-    // Load notes
-    loadNotes();
+    // Initialize Prism for syntax highlighting
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAll();
+    }
 }
 
-function updateTime() {
+function setupEventListeners() {
+    // Tab navigation
+    const navTabs = document.querySelectorAll('.nav-tab');
+    navTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-tab');
+            switchTab(targetTab);
+        });
+    });
+    
+    // Search functionality
+    const searchInputs = document.querySelectorAll('input[type="text"]');
+    searchInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const tabId = this.closest('.tab-content').id;
+            performSearch(tabId, searchTerm);
+        });
+    });
+}
+
+function switchTab(tabId) {
+    // Remove active class from all tabs and content
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Add active class to selected tab and content
+    document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+    
+    // Re-highlight syntax if switching to SQL tab
+    if (tabId === 'sql' && typeof Prism !== 'undefined') {
+        setTimeout(() => {
+            Prism.highlightAll();
+        }, 100);
+    }
+}
+
+function performSearch(tabId, searchTerm) {
+    const tabContent = document.getElementById(tabId);
+    const items = tabContent.querySelectorAll('.command-item, .query-item, .prompt-item, .project-card');
+    
+    items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = searchTerm ? 'none' : 'block';
+        }
+    });
+}
+
+function updateDateTime() {
     const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', {
+    
+    // Update date
+    const dateOptions = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    };
+    const dateElement = document.getElementById('currentDate');
+    if (dateElement) {
+        dateElement.textContent = now.toLocaleDateString('en-US', dateOptions);
+    }
+    
+    // Update time
+    const timeOptions = {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
         hour12: true
-    });
-    
+    };
     const timeElement = document.getElementById('currentTime');
     if (timeElement) {
-        timeElement.textContent = timeString;
-    }
-}
-
-function updateStats() {
-    // Update project count
-    const projectCount = document.getElementById('projectCount');
-    if (projectCount) {
-        projectCount.textContent = '2'; // MCP Demo + Personal Dashboard
+        timeElement.textContent = now.toLocaleTimeString('en-US', timeOptions);
     }
     
-    // Update task count (from localStorage)
-    const taskCount = document.getElementById('taskCount');
-    if (taskCount) {
-        const tasks = JSON.parse(localStorage.getItem('dashboardTasks') || '[]');
-        taskCount.textContent = tasks.length;
-    }
+    // Update weather (simulated)
+    updateWeather();
+}
+
+function updateWeather() {
+    // Simulate weather data (in a real app, this would come from an API)
+    const weatherData = {
+        temp: Math.floor(Math.random() * 15) + 15, // 15-30°C
+        conditions: ['Sunny', 'Partly Cloudy', 'Cloudy', 'Rainy'][Math.floor(Math.random() * 4)]
+    };
     
-    // Update focus time
-    const focusTime = document.getElementById('focusTime');
-    if (focusTime) {
-        const savedFocusTime = localStorage.getItem('focusTime') || '0';
-        focusTime.textContent = savedFocusTime + 'm';
+    const tempElement = document.getElementById('weatherTemp');
+    const descElement = document.getElementById('weatherDesc');
+    
+    if (tempElement) {
+        tempElement.textContent = `${weatherData.temp}°C`;
     }
-}
-
-// Quick Actions
-function openGitHub() {
-    window.open('https://github.com', '_blank');
-    addActivity('Opened GitHub', 'fas fa-github');
-}
-
-function openCursor() {
-    // Try to open Cursor (this might not work in all browsers)
-    if (navigator.userAgent.includes('Electron')) {
-        // Already in Cursor
-        addActivity('Already in Cursor', 'fas fa-code');
-    } else {
-        // Try to open Cursor app
-        addActivity('Attempted to open Cursor', 'fas fa-code');
-        alert('Cursor is not available in this browser. Please open it manually.');
+    if (descElement) {
+        descElement.textContent = weatherData.conditions;
     }
 }
 
-function openTerminal() {
-    addActivity('Opened Terminal', 'fas fa-terminal');
-    alert('Terminal opened (simulated)');
+// Copy functions
+function copyCommand(command) {
+    copyToClipboard(command, 'Command copied to clipboard!');
 }
 
-function startFocus() {
-    const focusTime = document.getElementById('focusTime');
-    const currentTime = parseInt(focusTime.textContent) || 0;
-    const newTime = currentTime + 25; // Add 25 minutes (Pomodoro technique)
-    
-    focusTime.textContent = newTime + 'm';
-    localStorage.setItem('focusTime', newTime.toString());
-    
-    addActivity('Started focus session (25 min)', 'fas fa-play');
-    
-    // Show focus notification
-    showNotification('Focus session started! 25 minutes of focused work.', 'success');
+function copyQuery(query) {
+    copyToClipboard(query, 'SQL query copied to clipboard!');
 }
 
-// Activity Management
-function addActivity(title, iconClass) {
-    const activityList = document.getElementById('activityList');
-    if (!activityList) return;
-    
-    const activityItem = document.createElement('div');
-    activityItem.className = 'activity-item';
-    activityItem.innerHTML = `
-        <div class="activity-icon">
-            <i class="${iconClass}"></i>
-        </div>
-        <div class="activity-content">
-            <p class="activity-title">${title}</p>
-            <p class="activity-time">Just now</p>
-        </div>
-    `;
-    
-    // Add to top of list
-    activityList.insertBefore(activityItem, activityList.firstChild);
-    
-    // Keep only last 10 activities
-    const activities = activityList.querySelectorAll('.activity-item');
-    if (activities.length > 10) {
-        activities[activities.length - 1].remove();
-    }
+function copyPrompt(prompt) {
+    copyToClipboard(prompt, 'Cursor prompt copied to clipboard!');
 }
 
-// Notes Management
-function loadNotes() {
-    const notesTextarea = document.getElementById('quickNotes');
-    if (notesTextarea) {
-        const savedNotes = localStorage.getItem('dashboardNotes') || '';
-        notesTextarea.value = savedNotes;
-    }
-}
-
-function saveNotes() {
-    const notesTextarea = document.getElementById('quickNotes');
-    if (notesTextarea) {
-        localStorage.setItem('dashboardNotes', notesTextarea.value);
-        showNotification('Notes saved successfully!', 'success');
-        addActivity('Saved notes', 'fas fa-save');
-    }
-}
-
-function clearNotes() {
-    const notesTextarea = document.getElementById('quickNotes');
-    if (notesTextarea) {
-        if (confirm('Are you sure you want to clear all notes?')) {
-            notesTextarea.value = '';
-            localStorage.removeItem('dashboardNotes');
-            showNotification('Notes cleared!', 'info');
-            addActivity('Cleared notes', 'fas fa-trash');
-        }
-    }
-}
-
-// Auto-save notes
-document.addEventListener('DOMContentLoaded', function() {
-    const notesTextarea = document.getElementById('quickNotes');
-    if (notesTextarea) {
-        notesTextarea.addEventListener('input', function() {
-            // Auto-save after 2 seconds of no typing
-            clearTimeout(window.notesTimeout);
-            window.notesTimeout = setTimeout(() => {
-                localStorage.setItem('dashboardNotes', notesTextarea.value);
-            }, 2000);
+function copyToClipboard(text, message) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+            showNotification(message);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+            fallbackCopyTextToClipboard(text, message);
         });
+    } else {
+        fallbackCopyTextToClipboard(text, message);
     }
-});
+}
 
-// Load saved data
-function loadSavedData() {
-    // Load tasks
-    const tasks = JSON.parse(localStorage.getItem('dashboardTasks') || '[]');
-    updateStats();
+function fallbackCopyTextToClipboard(text, message) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
     
-    // Load focus time
-    const focusTime = localStorage.getItem('focusTime') || '0';
-    const focusTimeElement = document.getElementById('focusTime');
-    if (focusTimeElement) {
-        focusTimeElement.textContent = focusTime + 'm';
+    try {
+        document.execCommand('copy');
+        showNotification(message);
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+        showNotification('Failed to copy to clipboard');
     }
+    
+    document.body.removeChild(textArea);
 }
 
-// Focus Timer
-let focusInterval;
-let focusStartTime;
-
-function startFocusTimer() {
-    // Check if there's an active focus session
-    const activeFocus = localStorage.getItem('activeFocusSession');
-    if (activeFocus) {
-        const startTime = parseInt(activeFocus);
-        const elapsed = Math.floor((Date.now() - startTime) / 60000); // minutes
-        const focusTimeElement = document.getElementById('focusTime');
-        if (focusTimeElement) {
-            focusTimeElement.textContent = elapsed + 'm';
-        }
+function showNotification(message) {
+    // Remove existing notification
+    const existingNotification = document.querySelector('.copy-notification');
+    if (existingNotification) {
+        existingNotification.remove();
     }
-}
-
-// Utility Functions
-function showNotification(message, type = 'info') {
-    // Create notification element
+    
+    // Create new notification
     const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
-        color: white;
-        padding: 15px 20px;
-        border-radius: 10px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        max-width: 300px;
-        animation: slideIn 0.3s ease-out;
-    `;
+    notification.className = 'copy-notification';
     notification.textContent = message;
     
-    // Add to page
     document.body.appendChild(notification);
     
     // Remove after 3 seconds
     setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-in';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
     }, 3000);
 }
 
-// Add CSS animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
+// Project management functions
+function addNewProject() {
+    // Simple prompt-based project addition (in a real app, this would open a modal)
+    const name = prompt('Enter project name:');
+    if (!name) return;
     
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+    const description = prompt('Enter project description:');
+    const githubUrl = prompt('Enter GitHub URL (optional):');
+    const liveUrl = prompt('Enter live demo URL (optional):');
+    const tech = prompt('Enter technologies (comma-separated):');
+    
+    const project = {
+        name: name,
+        description: description || 'No description provided',
+        githubUrl: githubUrl || '#',
+        liveUrl: liveUrl || '#',
+        tech: tech || 'Not specified',
+        date: 'Just now'
+    };
+    
+    addProjectToGrid(project);
+    saveProject(project);
+}
 
-// Dashboard Actions
-function refreshDashboard() {
+function addProjectToGrid(project) {
+    const projectsGrid = document.getElementById('projectsGrid');
+    if (!projectsGrid) return;
+    
+    const projectCard = document.createElement('div');
+    projectCard.className = 'project-card';
+    projectCard.innerHTML = `
+        <div class="project-header">
+            <h3>${project.name}</h3>
+            <div class="project-status">
+                <span class="status-badge active">Active</span>
+            </div>
+        </div>
+        <p class="project-description">${project.description}</p>
+        <div class="project-links">
+            <a href="${project.githubUrl}" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="${project.liveUrl}" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+        </div>
+        <div class="project-meta">
+            <span class="project-tech">${project.tech}</span>
+            <span class="project-date">Updated ${project.date}</span>
+        </div>
+    `;
+    
+    projectsGrid.appendChild(projectCard);
+}
+
+function saveProject(project) {
+    const projects = JSON.parse(localStorage.getItem('devReferenceProjects') || '[]');
+    projects.push(project);
+    localStorage.setItem('devReferenceProjects', JSON.stringify(projects));
+}
+
+function loadSavedData() {
+    // Load saved projects
+    const projects = JSON.parse(localStorage.getItem('devReferenceProjects') || '[]');
+    projects.forEach(project => {
+        addProjectToGrid(project);
+    });
+}
+
+// Utility functions
+function refreshData() {
     location.reload();
 }
 
-function openSettings() {
-    showNotification('Settings panel would open here', 'info');
-    addActivity('Opened settings', 'fas fa-cog');
+function exportData() {
+    const data = {
+        projects: JSON.parse(localStorage.getItem('devReferenceProjects') || '[]'),
+        exportDate: new Date().toISOString()
+    };
+    
+    const dataStr = JSON.stringify(data, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(dataBlob);
+    link.download = 'dev-reference-data.json';
+    link.click();
+    
+    showNotification('Data exported successfully!');
 }
 
 // Keyboard shortcuts
 document.addEventListener('keydown', function(e) {
-    // Ctrl/Cmd + S to save notes
-    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    // Ctrl/Cmd + 1-4 to switch tabs
+    if ((e.ctrlKey || e.metaKey) && e.key >= '1' && e.key <= '4') {
         e.preventDefault();
-        saveNotes();
+        const tabIndex = parseInt(e.key) - 1;
+        const tabs = ['terminal', 'sql', 'cursor', 'projects'];
+        if (tabs[tabIndex]) {
+            switchTab(tabs[tabIndex]);
+        }
     }
     
-    // Ctrl/Cmd + F to start focus
-    if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+    // Ctrl/Cmd + K to focus search
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
-        startFocus();
+        const activeTab = document.querySelector('.tab-content.active');
+        const searchInput = activeTab.querySelector('input[type="text"]');
+        if (searchInput) {
+            searchInput.focus();
+        }
     }
     
-    // Ctrl/Cmd + R to refresh
-    if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
-        e.preventDefault();
-        refreshDashboard();
+    // Escape to clear search
+    if (e.key === 'Escape') {
+        const searchInputs = document.querySelectorAll('input[type="text"]');
+        searchInputs.forEach(input => {
+            input.value = '';
+            performSearch(input.closest('.tab-content').id, '');
+        });
     }
 });
 
 // Add some sample data on first visit
-if (!localStorage.getItem('dashboardInitialized')) {
-    localStorage.setItem('dashboardInitialized', 'true');
-    localStorage.setItem('focusTime', '0');
-    localStorage.setItem('dashboardTasks', JSON.stringify([
-        'Complete MCP integration demo',
-        'Set up new project structure',
-        'Test dashboard functionality'
-    ]));
+if (!localStorage.getItem('devReferenceInitialized')) {
+    localStorage.setItem('devReferenceInitialized', 'true');
     
-    // Add initial activities
-    addActivity('Dashboard initialized', 'fas fa-rocket');
-    addActivity('Welcome to your personal dashboard!', 'fas fa-heart');
+    // Add sample projects
+    const sampleProjects = [
+        {
+            name: 'Sample React App',
+            description: 'A modern React application with TypeScript and Tailwind CSS.',
+            githubUrl: 'https://github.com/sample/react-app',
+            liveUrl: 'https://sample-react-app.vercel.app',
+            tech: 'React, TypeScript, Tailwind CSS',
+            date: '1 week ago'
+        }
+    ];
+    
+    localStorage.setItem('devReferenceProjects', JSON.stringify(sampleProjects));
 }
