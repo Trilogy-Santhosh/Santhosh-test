@@ -54,9 +54,30 @@ body {
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
+}
+
+/* Upload Section - Full Width Top */
+.upload-section {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+/* Bottom Row - Three Equal Columns */
+.widgets-bottom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Individual Widgets in Bottom Row */
+.calculator-section,
+.calendar-section,
+.currency-section {
+    width: 100%;
 }
 
 /* Widget Styling */
@@ -518,6 +539,13 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .widgets-bottom-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -533,6 +561,11 @@ body {
     
     .upload-area {
         padding: 30px 20px;
+    }
+    
+    .widgets-bottom-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
     
     .chat-header {
@@ -570,6 +603,12 @@ body {
     
     .calendar-day-header {
         font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .widgets-bottom-row {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
