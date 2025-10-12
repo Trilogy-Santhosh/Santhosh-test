@@ -1,46 +1,74 @@
-# 🔧 Developer Reference Hub
+# 🔌 MCP Developer Hub
 
-A comprehensive reference tool for developers featuring the most commonly used terminal commands, SQL queries, Cursor AI prompts, and project management. Built with modern web technologies and designed for efficiency.
+A comprehensive developer dashboard powered by Model Context Protocol (MCP) integrations. This application provides seamless access to GitHub repositories, database management, Salesforce CRM, AWS logs, support tickets, team collaboration, and essential developer tools - all in one unified interface.
 
 ## ✨ Features
 
-### 🖥️ Terminal Commands
-- **File Operations** - ls, cd, mkdir, cp, rm, find commands
-- **Git Commands** - status, add, commit, push, pull, log
-- **Process Management** - ps, kill, top, nohup
-- **System Information** - df, free, uname, which
-- **One-click Copy** - Copy any command to clipboard instantly
+### 🎯 **MCP Integration Dashboard**
+- **Real-time Status** - Live connection status for all MCP services
+- **Unified Overview** - Single dashboard showing key metrics from all connected services
+- **Activity Feed** - Recent activities across all integrated platforms
+- **Quick Actions** - Fast access to frequently used functions
 
-### 🗄️ SQL Queries
-- **Basic Queries** - SELECT, WHERE, COUNT, DISTINCT
-- **Joins** - INNER JOIN, LEFT JOIN examples
-- **Aggregations** - GROUP BY, HAVING, AVG, SUM
-- **Data Modification** - INSERT, UPDATE, DELETE
-- **Syntax Highlighting** - Beautiful code formatting
+### 🐙 **GitHub Integration**
+- **Repository Browser** - View all your GitHub repositories with detailed information
+- **Repository Management** - Clone, view, and manage repositories directly
+- **Statistics Overview** - Stars, forks, and contribution metrics
+- **Search & Filter** - Find repositories quickly with advanced search
+- **Real-time Updates** - Live data from GitHub API
 
-### 🎯 Cursor AI Prompts
-- **Code Generation** - React components, API endpoints, database schemas
-- **Code Review** - Performance optimization, security analysis
-- **Testing** - Unit tests, integration tests, E2E tests
-- **Documentation** - API docs, README generation, code comments
-- **Best Practices** - SOLID principles, clean code, refactoring
+### 🗄️ **Database Management**
+- **Multi-Database Support** - Connect to PostgreSQL, MySQL, MongoDB, and more
+- **Connection Management** - Add, remove, and monitor database connections
+- **Query Builder** - Visual SQL query builder with syntax highlighting
+- **Query Execution** - Execute queries and view results in real-time
+- **Database Explorer** - Browse tables, schemas, and data structures
+- **Performance Monitoring** - Track query performance and database health
 
-### 📁 Git Project Management
-- **Project Links** - GitHub repositories and live demos
-- **Project Status** - Active, completed, in-progress tracking
-- **Technology Tags** - Stack information and tools used
-- **Add Projects** - Easy project addition and management
-- **Export Data** - Backup and export project information
+### ☁️ **Salesforce CRM**
+- **Lead Management** - View and manage sales leads
+- **Opportunity Tracking** - Monitor sales opportunities and pipeline
+- **Contact Organization** - Manage customer contacts and relationships
+- **Sales Analytics** - Visual charts and performance metrics
+- **Custom Reports** - Generate and export custom reports
+- **Real-time Sync** - Live data synchronization with Salesforce
 
-### 🌤️ Live Information
-- **Date & Time** - Real-time clock with full date display
-- **Weather** - Temperature in Celsius and conditions
-- **Auto-refresh** - Live updates every second
+### 📊 **AWS Logs Analysis**
+- **Log Streaming** - Real-time log monitoring and streaming
+- **Error Tracking** - Identify and track application errors
+- **Performance Monitoring** - Monitor application performance metrics
+- **Log Search** - Advanced search and filtering capabilities
+- **Alert Management** - Set up log-based alerts and notifications
+- **Analytics Dashboard** - Generate insights from log data
+
+### 🎧 **Support Ticket Management**
+- **Ticket Dashboard** - View all support tickets in one place
+- **Priority Management** - Handle high, medium, and low priority tickets
+- **SLA Tracking** - Monitor response times and SLA compliance
+- **Customer Communication** - Integrated chat and communication tools
+- **Knowledge Base** - Search and manage support articles
+- **Team Collaboration** - Assign and collaborate on tickets
+
+### 👥 **Team Collaboration**
+- **Status Dashboard** - See who's online, busy, or away
+- **Availability Tracking** - Monitor team availability and schedules
+- **Communication Tools** - Direct messaging and calling capabilities
+- **Meeting Scheduler** - Find optimal meeting times
+- **Team Analytics** - Productivity and collaboration metrics
+- **Real-time Updates** - Live status updates and notifications
+
+### 🛠️ **Developer Tools**
+- **Terminal Commands** - Quick access to common terminal commands
+- **SQL Queries** - Pre-built SQL queries for common tasks
+- **Code Snippets** - Reusable code snippets and templates
+- **One-click Copy** - Copy commands and code to clipboard instantly
+- **Search & Filter** - Find tools and commands quickly
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Active MCP server connections (GitHub, Database, Salesforce, etc.)
 - No additional software required!
 
 ### Installation & Running
@@ -50,120 +78,145 @@ A comprehensive reference tool for developers featuring the most commonly used t
    cd new-project
    ```
 
-2. **Open the reference hub**
+2. **Open the MCP Developer Hub**
    - Simply open `index.html` in your web browser
    - Or use a local server: `python -m http.server 8000`
 
-3. **Start using the reference**
-   - Click on different tabs to explore features
-   - Use search to find specific commands or queries
-   - Click copy buttons to copy code to clipboard
+3. **Configure MCP Connections**
+   - Ensure your MCP servers are running and accessible
+   - The dashboard will automatically detect and connect to available services
+   - Connection status is shown in real-time on the dashboard
+
+4. **Start using the integrated tools**
+   - Navigate between tabs to access different services
+   - Use the dashboard for a unified overview
+   - Leverage search functionality across all integrated platforms
 
 ## 🎨 Design Features
 
-### Modern UI
-- **Gradient Backgrounds** - Beautiful color schemes
-- **Glass Morphism** - Frosted glass effects
-- **Smooth Animations** - Hover effects and transitions
-- **Responsive Design** - Works on all screen sizes
+### Modern UI/UX
+- **Glass Morphism** - Beautiful frosted glass effects with backdrop blur
+- **Gradient Backgrounds** - Stunning color schemes and animations
+- **Smooth Animations** - Hover effects and smooth transitions
+- **Responsive Design** - Works perfectly on all screen sizes
+- **Dark Theme** - Easy on the eyes for long coding sessions
 
 ### Interactive Elements
-- **Tab Navigation** - Easy switching between sections
-- **Search Functionality** - Real-time search across all content
-- **Copy to Clipboard** - One-click copying with notifications
-- **Keyboard Shortcuts** - Power user features
+- **Tab Navigation** - Easy switching between different services
+- **Real-time Updates** - Live data refresh and status updates
+- **Search Functionality** - Global search across all integrated services
+- **Copy to Clipboard** - One-click copying with visual feedback
+- **Keyboard Shortcuts** - Power user features for efficiency
 
 ## ⌨️ Keyboard Shortcuts
 
-- **Ctrl/Cmd + 1-4** - Switch between tabs
+- **Ctrl/Cmd + 1** - Dashboard
+- **Ctrl/Cmd + 2** - GitHub
+- **Ctrl/Cmd + 3** - Database
+- **Ctrl/Cmd + 4** - Salesforce
+- **Ctrl/Cmd + 5** - AWS Logs
+- **Ctrl/Cmd + 6** - Support
+- **Ctrl/Cmd + 7** - Team
+- **Ctrl/Cmd + 8** - Dev Tools
 - **Ctrl/Cmd + K** - Focus search box
 - **Escape** - Clear search
 
-## 🔧 Usage Examples
+## 🔧 MCP Integration Details
 
-### Terminal Commands
-```bash
-# Copy and paste these commands
-ls -la                    # List all files with details
-git status               # Check repository status
-ps aux | grep process    # Find running processes
-```
+### Supported MCP Services
+- **GitHub MCP** - Repository management and GitHub API integration
+- **MultiDB MCP** - Multi-database connection and query management
+- **Salesforce MCP** - CRM data access and management
+- **AWS Logs MCP** - CloudWatch logs and monitoring
+- **Kayako MCP** - Support ticket management
+- **Star MCP** - Team collaboration and status tracking
+- **Who-Is-On MCP** - Team presence and availability
 
-### SQL Queries
-```sql
--- Copy and use these queries
-SELECT * FROM users WHERE active = 1;
-SELECT u.name, o.total FROM users u INNER JOIN orders o ON u.id = o.user_id;
-```
-
-### Cursor Prompts
-```
-Create a responsive React component for a user profile card with avatar, name, email, and edit button. Include proper TypeScript types, CSS modules for styling, and make it mobile-friendly.
-```
+### Connection Management
+- **Auto-Detection** - Automatically detect available MCP services
+- **Status Monitoring** - Real-time connection status for all services
+- **Error Handling** - Graceful handling of connection failures
+- **Retry Logic** - Automatic reconnection attempts
+- **Security** - Secure token-based authentication
 
 ## 📱 Responsive Design
 
-- **Desktop** - Full grid layout with all features
-- **Tablet** - Optimized card layout
-- **Mobile** - Stacked layout with touch-friendly buttons
+- **Desktop** - Full grid layout with all features and sidebars
+- **Tablet** - Optimized card layout with touch-friendly interactions
+- **Mobile** - Stacked layout with mobile-optimized navigation
+- **Touch Support** - Full touch and gesture support for mobile devices
 
-## 💾 Data Storage
+## 💾 Data Management
 
 ### Local Storage
-- **Projects** - Saved project information
-- **Settings** - User preferences and configurations
-- **Export/Import** - Data backup and restoration
+- **User Preferences** - Save dashboard layout and settings
+- **Search History** - Remember recent searches across services
+- **Favorites** - Bookmark frequently used repositories, queries, etc.
+- **Export/Import** - Backup and restore application data
 
-### Data Persistence
-- All data is stored locally in your browser
-- No external dependencies or accounts required
-- Data persists between browser sessions
+### Real-time Data
+- **Live Updates** - Real-time data from all connected MCP services
+- **Caching** - Intelligent caching for improved performance
+- **Offline Support** - Basic functionality when connections are unavailable
+- **Data Sync** - Synchronization across multiple browser sessions
 
 ## 🎯 Use Cases
 
-### Daily Development
-- Quick access to terminal commands
-- SQL query reference for database work
-- Cursor AI prompts for efficient coding
-- Project management and tracking
+### Daily Development Workflow
+- **Code Management** - Quick access to GitHub repositories and code
+- **Database Operations** - Execute queries and manage database connections
+- **Issue Tracking** - Monitor and resolve GitHub issues and support tickets
+- **Team Coordination** - Check team status and collaborate effectively
 
-### Learning & Reference
-- Command syntax and examples
-- SQL query patterns and best practices
-- AI prompt templates for different scenarios
-- Project organization and documentation
+### DevOps & Monitoring
+- **Log Analysis** - Monitor application logs and identify issues
+- **Performance Tracking** - Track system performance and metrics
+- **Alert Management** - Set up and manage monitoring alerts
+- **Incident Response** - Quick access to logs and team communication
 
-### Team Collaboration
-- Share common commands and queries
-- Standardize AI prompts across team
-- Track project progress and links
-- Export data for team sharing
+### Business Operations
+- **Sales Management** - Track leads and opportunities in Salesforce
+- **Customer Support** - Manage support tickets and customer communication
+- **Team Productivity** - Monitor team availability and collaboration
+- **Reporting** - Generate reports and analytics across all platforms
 
 ## 🔮 Future Enhancements
 
 ### Planned Features
-- **More Commands** - Additional terminal and system commands
-- **Database Support** - More SQL examples and patterns
-- **AI Integration** - Real Cursor AI integration
-- **Weather API** - Real weather data integration
-- **Theme Switcher** - Dark/light mode toggle
-- **Command History** - Recently used commands tracking
-- **Favorites** - Bookmark frequently used items
-- **Categories** - More organized command categories
+- **More MCP Integrations** - Additional service integrations
+- **Advanced Analytics** - Machine learning insights and predictions
+- **Workflow Automation** - Create automated workflows across services
+- **Custom Dashboards** - Personalized dashboard configurations
+- **API Integration** - Direct API access and custom integrations
+- **Mobile App** - Native mobile application
 
 ### Technical Improvements
-- **PWA Support** - Install as app
-- **Offline Mode** - Work without internet
-- **Data Sync** - Cloud synchronization
-- **Performance** - Optimize loading and rendering
-- **Accessibility** - Better screen reader support
+- **PWA Support** - Install as a Progressive Web App
+- **Offline Mode** - Enhanced offline functionality
+- **Performance Optimization** - Faster loading and rendering
+- **Accessibility** - Better screen reader and accessibility support
+- **Internationalization** - Multi-language support
+
+## 🛡️ Security & Privacy
+
+### Data Protection
+- **Secure Connections** - All MCP connections use secure protocols
+- **Token Management** - Secure storage and management of authentication tokens
+- **Data Encryption** - Sensitive data encrypted in transit and at rest
+- **Privacy Controls** - Granular privacy and data sharing controls
+
+### Access Control
+- **Role-based Access** - Different access levels for different users
+- **Audit Logging** - Track all actions and data access
+- **Session Management** - Secure session handling and timeout
+- **Multi-factor Authentication** - Enhanced security for sensitive operations
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
+4. Test thoroughly with MCP integrations
 5. Submit a pull request
 
 ## 📄 License
@@ -172,13 +225,14 @@ This project is open source and available under the MIT License.
 
 ## 🙏 Acknowledgments
 
+- **Model Context Protocol** - For enabling seamless service integrations
 - **Font Awesome** - For beautiful icons
+- **Chart.js** - For data visualization
 - **Prism.js** - For syntax highlighting
 - **Modern CSS** - For responsive design techniques
-- **Local Storage API** - For data persistence
 
 ---
 
-**Built with ❤️ for developer productivity**
+**Built with ❤️ for developer productivity and MCP integration**
 
-*Last updated: September 2024*
+*Last updated: January 2025*

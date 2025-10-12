@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Reference Hub - Santhosh</title>
+    <title>MCP Developer Hub - Santhosh</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Floating Space Elements -->
@@ -18,11 +19,14 @@
         <!-- Header -->
         <header class="header">
             <div class="header-content">
-                <h1><i class="fas fa-code"></i> Developer Reference Hub</h1>
+                <h1><i class="fas fa-plug"></i> MCP Developer Hub</h1>
                 <div class="header-info">
                     <div class="datetime">
                         <span id="currentDate"></span>
                         <span id="currentTime"></span>
+                    </div>
+                    <div class="mcp-status">
+                        <span class="status-indicator" id="mcpStatus">MCP Connected</span>
                     </div>
                 </div>
             </div>
@@ -30,324 +34,477 @@
 
         <!-- Navigation -->
         <nav class="nav-tabs">
-            <button class="nav-tab active" data-tab="terminal">
-                <i class="fas fa-terminal"></i> Terminal Commands
+            <button class="nav-tab active" data-tab="dashboard">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
             </button>
-            <button class="nav-tab" data-tab="sql">
-                <i class="fas fa-database"></i> SQL Queries
+            <button class="nav-tab" data-tab="github">
+                <i class="fab fa-github"></i> GitHub
             </button>
-            <button class="nav-tab" data-tab="cursor">
-                <i class="fas fa-magic"></i> Cursor Prompts
+            <button class="nav-tab" data-tab="database">
+                <i class="fas fa-database"></i> Database
             </button>
-            <button class="nav-tab" data-tab="projects">
-                <i class="fab fa-git-alt"></i> Git Projects
+            <button class="nav-tab" data-tab="salesforce">
+                <i class="fas fa-cloud"></i> Salesforce
+            </button>
+            <button class="nav-tab" data-tab="logs">
+                <i class="fas fa-file-alt"></i> AWS Logs
+            </button>
+            <button class="nav-tab" data-tab="support">
+                <i class="fas fa-headset"></i> Support
+            </button>
+            <button class="nav-tab" data-tab="team">
+                <i class="fas fa-users"></i> Team
+            </button>
+            <button class="nav-tab" data-tab="tools">
+                <i class="fas fa-tools"></i> Dev Tools
             </button>
         </nav>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Terminal Commands Tab -->
-            <div class="tab-content active" id="terminal">
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="dashboard">
                 <div class="section-header">
-                    <h2><i class="fas fa-terminal"></i> Most Common Terminal Commands</h2>
+                    <h2><i class="fas fa-tachometer-alt"></i> MCP Integration Dashboard</h2>
+                    <div class="dashboard-controls">
+                        <button class="refresh-btn" onclick="refreshAllData()">
+                            <i class="fas fa-sync-alt"></i> Refresh All
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <!-- GitHub Overview -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fab fa-github"></i> GitHub Overview</h3>
+                            <span class="card-status" id="githubStatus">Loading...</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-item">
+                                <span class="stat-number" id="repoCount">-</span>
+                                <span class="stat-label">Repositories</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="starCount">-</span>
+                                <span class="stat-label">Total Stars</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="forkCount">-</span>
+                                <span class="stat-label">Forks</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-action" onclick="switchTab('github')">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Database Overview -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-database"></i> Database Status</h3>
+                            <span class="card-status" id="dbStatus">Loading...</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-item">
+                                <span class="stat-number" id="dbCount">-</span>
+                                <span class="stat-label">Connected DBs</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="tableCount">-</span>
+                                <span class="stat-label">Total Tables</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="queryCount">-</span>
+                                <span class="stat-label">Queries Today</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-action" onclick="switchTab('database')">Manage DBs</button>
+                        </div>
+                    </div>
+
+                    <!-- Salesforce Overview -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-cloud"></i> Salesforce CRM</h3>
+                            <span class="card-status" id="sfStatus">Loading...</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-item">
+                                <span class="stat-number" id="leadCount">-</span>
+                                <span class="stat-label">Active Leads</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="oppCount">-</span>
+                                <span class="stat-label">Opportunities</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="contactCount">-</span>
+                                <span class="stat-label">Contacts</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-action" onclick="switchTab('salesforce')">View CRM</button>
+                        </div>
+                    </div>
+
+                    <!-- AWS Logs Overview -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-file-alt"></i> AWS Logs</h3>
+                            <span class="card-status" id="logsStatus">Loading...</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-item">
+                                <span class="stat-number" id="logCount">-</span>
+                                <span class="stat-label">Log Entries</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="errorCount">-</span>
+                                <span class="stat-label">Errors Today</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="warningCount">-</span>
+                                <span class="stat-label">Warnings</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-action" onclick="switchTab('logs')">View Logs</button>
+                        </div>
+                    </div>
+
+                    <!-- Team Status -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-users"></i> Team Status</h3>
+                            <span class="card-status" id="teamStatus">Loading...</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-item">
+                                <span class="stat-number" id="onlineCount">-</span>
+                                <span class="stat-label">Online</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="busyCount">-</span>
+                                <span class="stat-label">Busy</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="awayCount">-</span>
+                                <span class="stat-label">Away</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-action" onclick="switchTab('team')">View Team</button>
+                        </div>
+                    </div>
+
+                    <!-- Support Tickets -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-headset"></i> Support</h3>
+                            <span class="card-status" id="supportStatus">Loading...</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat-item">
+                                <span class="stat-number" id="ticketCount">-</span>
+                                <span class="stat-label">Open Tickets</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="urgentCount">-</span>
+                                <span class="stat-label">Urgent</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="slaCount">-</span>
+                                <span class="stat-label">SLA Met</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="card-action" onclick="switchTab('support')">Manage Tickets</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <i class="fas fa-github"></i>
+                            <span>Pushed to repository: mcp-demo</span>
+                            <span class="activity-time">2 minutes ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-database"></i>
+                            <span>Executed query on production DB</span>
+                            <span class="activity-time">15 minutes ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Updated lead status in Salesforce</span>
+                            <span class="activity-time">1 hour ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Tab -->
+            <div class="tab-content" id="github">
+                <div class="section-header">
+                    <h2><i class="fab fa-github"></i> GitHub Repository Manager</h2>
+                    <div class="section-controls">
+                        <div class="search-box">
+                            <input type="text" id="githubSearch" placeholder="Search repositories...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <button class="refresh-btn" onclick="refreshGitHubData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="github-content">
+                    <div class="repositories-grid" id="repositoriesGrid">
+                        <!-- Repositories will be loaded here -->
+                        <div class="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading repositories...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Database Tab -->
+            <div class="tab-content" id="database">
+                <div class="section-header">
+                    <h2><i class="fas fa-database"></i> Database Management</h2>
+                    <div class="section-controls">
+                        <button class="add-btn" onclick="addDatabaseConnection()">
+                            <i class="fas fa-plus"></i> Add Connection
+                        </button>
+                        <button class="refresh-btn" onclick="refreshDatabaseData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="database-content">
+                    <div class="database-connections" id="databaseConnections">
+                        <!-- Database connections will be loaded here -->
+                        <div class="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading database connections...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="query-builder">
+                        <h3><i class="fas fa-code"></i> Query Builder</h3>
+                        <div class="query-editor">
+                            <textarea id="sqlQuery" placeholder="Enter your SQL query here..."></textarea>
+                            <div class="query-controls">
+                                <button class="execute-btn" onclick="executeQuery()">
+                                    <i class="fas fa-play"></i> Execute
+                                </button>
+                                <button class="format-btn" onclick="formatQuery()">
+                                    <i class="fas fa-magic"></i> Format
+                                </button>
+                            </div>
+                        </div>
+                        <div class="query-results" id="queryResults">
+                            <!-- Query results will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salesforce Tab -->
+            <div class="tab-content" id="salesforce">
+                <div class="section-header">
+                    <h2><i class="fas fa-cloud"></i> Salesforce CRM Dashboard</h2>
+                    <div class="section-controls">
+                        <button class="refresh-btn" onclick="refreshSalesforceData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="salesforce-content">
+                    <div class="crm-stats">
+                        <div class="stat-card">
+                            <h4>Leads</h4>
+                            <div class="stat-number" id="sfLeads">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Opportunities</h4>
+                            <div class="stat-number" id="sfOpportunities">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Contacts</h4>
+                            <div class="stat-number" id="sfContacts">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Accounts</h4>
+                            <div class="stat-number" id="sfAccounts">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="crm-data">
+                        <div class="data-section">
+                            <h3><i class="fas fa-user-plus"></i> Recent Leads</h3>
+                            <div class="data-table" id="leadsTable">
+                                <!-- Leads data will be loaded here -->
+                            </div>
+                        </div>
+                        
+                        <div class="data-section">
+                            <h3><i class="fas fa-chart-line"></i> Opportunities Pipeline</h3>
+                            <div class="pipeline-chart">
+                                <canvas id="pipelineChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AWS Logs Tab -->
+            <div class="tab-content" id="logs">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-alt"></i> AWS Logs Analysis</h2>
+                    <div class="section-controls">
+                        <div class="log-filters">
+                            <select id="logLevel">
+                                <option value="all">All Levels</option>
+                                <option value="error">Errors</option>
+                                <option value="warning">Warnings</option>
+                                <option value="info">Info</option>
+                            </select>
+                            <input type="datetime-local" id="logStartTime">
+                            <input type="datetime-local" id="logEndTime">
+                        </div>
+                        <button class="refresh-btn" onclick="refreshLogsData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="logs-content">
+                    <div class="logs-stats">
+                        <div class="stat-card">
+                            <h4>Total Logs</h4>
+                            <div class="stat-number" id="totalLogs">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Errors</h4>
+                            <div class="stat-number error" id="errorLogs">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Warnings</h4>
+                            <div class="stat-number warning" id="warningLogs">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Info</h4>
+                            <div class="stat-number info" id="infoLogs">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="logs-viewer">
+                        <div class="logs-list" id="logsList">
+                            <!-- Logs will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Tab -->
+            <div class="tab-content" id="support">
+                <div class="section-header">
+                    <h2><i class="fas fa-headset"></i> Support Ticket Management</h2>
+                    <div class="section-controls">
+                        <button class="add-btn" onclick="createNewTicket()">
+                            <i class="fas fa-plus"></i> New Ticket
+                        </button>
+                        <button class="refresh-btn" onclick="refreshSupportData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="support-content">
+                    <div class="tickets-grid" id="ticketsGrid">
+                        <!-- Support tickets will be loaded here -->
+                        <div class="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading support tickets...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Tab -->
+            <div class="tab-content" id="team">
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> Team Collaboration</h2>
+                    <div class="section-controls">
+                        <button class="refresh-btn" onclick="refreshTeamData()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="team-content">
+                    <div class="team-status" id="teamStatus">
+                        <!-- Team member status will be loaded here -->
+                        <div class="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading team status...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dev Tools Tab -->
+            <div class="tab-content" id="tools">
+                <div class="section-header">
+                    <h2><i class="fas fa-tools"></i> Developer Tools</h2>
                     <div class="search-box">
-                        <input type="text" id="terminalSearch" placeholder="Search terminal commands...">
+                        <input type="text" id="toolsSearch" placeholder="Search tools...">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
                 
-                <div class="commands-grid">
-                    <!-- File Operations -->
-                    <div class="command-category">
-                        <h3><i class="fas fa-folder"></i> File Operations</h3>
-                        <div class="command-list">
-                            <div class="command-item">
-                                <code>ls -la</code>
-                                <span class="command-desc">List all files with details</span>
-                                <button class="copy-btn" onclick="copyCommand('ls -la')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>cd ~</code>
-                                <span class="command-desc">Go to home directory</span>
-                                <button class="copy-btn" onclick="copyCommand('cd ~')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>mkdir -p folder/subfolder</code>
-                                <span class="command-desc">Create nested directories</span>
-                                <button class="copy-btn" onclick="copyCommand('mkdir -p folder/subfolder')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>cp -r source dest</code>
-                                <span class="command-desc">Copy directory recursively</span>
-                                <button class="copy-btn" onclick="copyCommand('cp -r source dest')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>rm -rf folder</code>
-                                <span class="command-desc">Remove directory and contents</span>
-                                <button class="copy-btn" onclick="copyCommand('rm -rf folder')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>find . -name "*.js"</code>
-                                <span class="command-desc">Find files by name pattern</span>
-                                <button class="copy-btn" onclick="copyCommand('find . -name "*.js"')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Git Commands -->
-                    <div class="command-category">
-                        <h3><i class="fab fa-git-alt"></i> Git Commands</h3>
-                        <div class="command-list">
-                            <div class="command-item">
+                <div class="tools-grid">
+                    <!-- Terminal Commands -->
+                    <div class="tool-category">
+                        <h3><i class="fas fa-terminal"></i> Terminal Commands</h3>
+                        <div class="tool-list">
+                            <div class="tool-item">
                                 <code>git status</code>
-                                <span class="command-desc">Check repository status</span>
+                                <span class="tool-desc">Check repository status</span>
                                 <button class="copy-btn" onclick="copyCommand('git status')">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <div class="command-item">
-                                <code>git add .</code>
-                                <span class="command-desc">Stage all changes</span>
-                                <button class="copy-btn" onclick="copyCommand('git add .')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>git commit -m "message"</code>
-                                <span class="command-desc">Commit with message</span>
-                                <button class="copy-btn" onclick="copyCommand('git commit -m "message"')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>git push origin main</code>
-                                <span class="command-desc">Push to remote main branch</span>
-                                <button class="copy-btn" onclick="copyCommand('git push origin main')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>git pull origin main</code>
-                                <span class="command-desc">Pull latest changes</span>
-                                <button class="copy-btn" onclick="copyCommand('git pull origin main')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>git log --oneline</code>
-                                <span class="command-desc">Show commit history</span>
-                                <button class="copy-btn" onclick="copyCommand('git log --oneline')">
+                            <div class="tool-item">
+                                <code>npm install</code>
+                                <span class="tool-desc">Install dependencies</span>
+                                <button class="copy-btn" onclick="copyCommand('npm install')">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Process Management -->
-                    <div class="command-category">
-                        <h3><i class="fas fa-cogs"></i> Process Management</h3>
-                        <div class="command-list">
-                            <div class="command-item">
-                                <code>ps aux | grep process</code>
-                                <span class="command-desc">Find running processes</span>
-                                <button class="copy-btn" onclick="copyCommand('ps aux | grep process')">
+                    <!-- SQL Queries -->
+                    <div class="tool-category">
+                        <h3><i class="fas fa-database"></i> SQL Queries</h3>
+                        <div class="tool-list">
+                            <div class="tool-item">
+                                <code>SELECT * FROM users;</code>
+                                <span class="tool-desc">Select all users</span>
+                                <button class="copy-btn" onclick="copyCommand('SELECT * FROM users;')">
                                     <i class="fas fa-copy"></i>
                                 </button>
                             </div>
-                            <div class="command-item">
-                                <code>kill -9 PID</code>
-                                <span class="command-desc">Force kill process</span>
-                                <button class="copy-btn" onclick="copyCommand('kill -9 PID')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="command-item">
-                                <code>top</code>
-                                <span class="command-desc">Show running processes</span>
-                                <button class="copy-btn" onclick="copyCommand('top')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SQL Queries Tab -->
-            <div class="tab-content" id="sql">
-                <div class="section-header">
-                    <h2><i class="fas fa-database"></i> Most Common SQL Queries</h2>
-                    <div class="search-box">
-                        <input type="text" id="sqlSearch" placeholder="Search SQL queries...">
-                        <i class="fas fa-search"></i>
-                    </div>
-                </div>
-                
-                <div class="queries-grid">
-                    <!-- Basic Queries -->
-                    <div class="query-category">
-                        <h3><i class="fas fa-search"></i> Basic Queries</h3>
-                        <div class="query-list">
-                            <div class="query-item">
-                                <pre><code class="language-sql">SELECT * FROM users;</code></pre>
-                                <span class="query-desc">Select all records from users table</span>
-                                <button class="copy-btn" onclick="copyQuery('SELECT * FROM users;')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="query-item">
-                                <pre><code class="language-sql">SELECT id, name, email FROM users WHERE active = 1;</code></pre>
-                                <span class="query-desc">Select specific columns with condition</span>
-                                <button class="copy-btn" onclick="copyQuery('SELECT id, name, email FROM users WHERE active = 1;')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="query-item">
-                                <pre><code class="language-sql">SELECT COUNT(*) FROM users;</code></pre>
-                                <span class="query-desc">Count total records</span>
-                                <button class="copy-btn" onclick="copyQuery('SELECT COUNT(*) FROM users;')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Joins -->
-                    <div class="query-category">
-                        <h3><i class="fas fa-link"></i> Joins</h3>
-                        <div class="query-list">
-                            <div class="query-item">
-                                <pre><code class="language-sql">SELECT u.name, o.total 
-FROM users u 
-INNER JOIN orders o ON u.id = o.user_id;</code></pre>
-                                <span class="query-desc">Inner join users and orders</span>
-                                <button class="copy-btn" onclick="copyQuery('SELECT u.name, o.total FROM users u INNER JOIN orders o ON u.id = o.user_id;')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cursor Prompts Tab -->
-            <div class="tab-content" id="cursor">
-                <div class="section-header">
-                    <h2><i class="fas fa-magic"></i> Best Cursor Prompts for Efficient Development</h2>
-                    <div class="search-box">
-                        <input type="text" id="cursorSearch" placeholder="Search Cursor prompts...">
-                        <i class="fas fa-search"></i>
-                    </div>
-                </div>
-                
-                <div class="prompts-grid">
-                    <!-- Code Generation -->
-                    <div class="prompt-category">
-                        <h3><i class="fas fa-code"></i> Code Generation</h3>
-                        <div class="prompt-list">
-                            <div class="prompt-item">
-                                <div class="prompt-text">
-                                    <strong>Generate a complete React component:</strong><br>
-                                    "Create a responsive React component for a user profile card with avatar, name, email, and edit button. Include proper TypeScript types, CSS modules for styling, and make it mobile-friendly."
-                                </div>
-                                <button class="copy-btn" onclick="copyPrompt('Create a responsive React component for a user profile card with avatar, name, email, and edit button. Include proper TypeScript types, CSS modules for styling, and make it mobile-friendly.')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                            <div class="prompt-item">
-                                <div class="prompt-text">
-                                    <strong>API endpoint creation:</strong><br>
-                                    "Build a REST API endpoint for user authentication with JWT tokens. Include validation, error handling, password hashing, and proper HTTP status codes. Use Express.js and TypeScript."
-                                </div>
-                                <button class="copy-btn" onclick="copyPrompt('Build a REST API endpoint for user authentication with JWT tokens. Include validation, error handling, password hashing, and proper HTTP status codes. Use Express.js and TypeScript.')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Testing -->
-                    <div class="prompt-category">
-                        <h3><i class="fas fa-bug"></i> Testing</h3>
-                        <div class="prompt-list">
-                            <div class="prompt-item">
-                                <div class="prompt-text">
-                                    <strong>Unit tests:</strong><br>
-                                    "Write comprehensive unit tests for this function using Jest. Include edge cases, error scenarios, and mock external dependencies."
-                                </div>
-                                <button class="copy-btn" onclick="copyPrompt('Write comprehensive unit tests for this function using Jest. Include edge cases, error scenarios, and mock external dependencies.')">
-                                    <i class="fas fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Git Projects Tab -->
-            <div class="tab-content" id="projects">
-                <div class="section-header">
-                    <h2><i class="fab fa-git-alt"></i> Git Project Links</h2>
-                    <button class="add-project-btn" onclick="addNewProject()">
-                        <i class="fas fa-plus"></i> Add Project
-                    </button>
-                </div>
-                
-                <div class="projects-grid" id="projectsGrid">
-                    <!-- Sample projects -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>MCP Integration Demo</h3>
-                            <div class="project-status">
-                                <span class="status-badge active">Active</span>
-                            </div>
-                        </div>
-                        <p class="project-description">Demonstration tool for Model Context Protocol integrations with GitHub and Salesforce.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/santhosh-m/mcp-demo" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                        <div class="project-meta">
-                            <span class="project-tech">HTML, CSS, JavaScript</span>
-                            <span class="project-date">Updated 2 hours ago</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Developer Reference Hub</h3>
-                            <div class="project-status">
-                                <span class="status-badge active">Active</span>
-                            </div>
-                        </div>
-                        <p class="project-description">Comprehensive reference tool for terminal commands, SQL queries, and Cursor prompts.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/santhosh-m/dev-reference" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                        <div class="project-meta">
-                            <span class="project-tech">HTML, CSS, JavaScript</span>
-                            <span class="project-date">Updated just now</span>
                         </div>
                     </div>
                 </div>
@@ -356,10 +513,10 @@ INNER JOIN orders o ON u.id = o.user_id;</code></pre>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2024 Santhosh M - Developer Reference Hub</p>
+            <p>&copy; 2024 Santhosh M - MCP Developer Hub</p>
             <div class="footer-links">
-                <a href="#" onclick="refreshData()">
-                    <i class="fas fa-sync-alt"></i> Refresh
+                <a href="#" onclick="refreshAllData()">
+                    <i class="fas fa-sync-alt"></i> Refresh All
                 </a>
                 <a href="#" onclick="exportData()">
                     <i class="fas fa-download"></i> Export
@@ -368,8 +525,17 @@ INNER JOIN orders o ON u.id = o.user_id;</code></pre>
         </footer>
     </div>
 
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading MCP data...</p>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
