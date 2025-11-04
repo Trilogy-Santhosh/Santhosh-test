@@ -59,24 +59,34 @@ body {
     padding: 20px;
 }
 
-/* Upload Section - Full Width Top */
-.upload-section {
-    grid-column: 1 / -1;
-    width: 100%;
-}
-
-/* Bottom Row - Three Equal Columns */
-.widgets-bottom-row {
+/* Top Row - Three Equal Columns */
+.widgets-top-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
 }
 
-/* Individual Widgets in Bottom Row */
+/* Individual Widgets in Top Row */
 .calculator-section,
 .calendar-section,
-.currency-section {
+.utc-time-section {
+    width: 100%;
+}
+
+/* Second Row - Three Equal Columns */
+.widgets-second-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Individual Widgets in Second Row */
+.timezone-map-section,
+.percentage-converter-section,
+.joke-generator-section {
     width: 100%;
 }
 
@@ -540,7 +550,8 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .widgets-bottom-row {
+    .widgets-top-row,
+    .widgets-second-row {
         grid-template-columns: 1fr;
         gap: 15px;
     }
@@ -563,7 +574,8 @@ body {
         padding: 30px 20px;
     }
     
-    .widgets-bottom-row {
+    .widgets-top-row,
+    .widgets-second-row {
         grid-template-columns: 1fr;
         gap: 15px;
     }
@@ -607,7 +619,8 @@ body {
 }
 
 @media (min-width: 1025px) {
-    .widgets-bottom-row {
+    .widgets-top-row,
+    .widgets-second-row {
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -795,74 +808,377 @@ body {
     color: #64748b;
 }
 
-/* Currency Converter Styles */
-.currency-converter {
+/* UTC Time Widget Styles */
+.utc-time-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.currency-input, .currency-output {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.currency-input label, .currency-output label {
-    font-weight: bold;
-    color: #f1f5f9;
-    font-size: 0.9rem;
-}
-
-.currency-input input, .currency-output input {
-    padding: 12px;
-    border: 2px solid #334155;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    transition: border-color 0.3s ease;
-    background: #0f172a;
-    color: #f1f5f9;
-}
-
-.currency-input input:focus, .currency-output input:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.currency-arrow {
+.utc-clock {
     text-align: center;
-    color: #667eea;
-    font-size: 1.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }
 
-.exchange-rate {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.utc-time {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+.utc-date {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.timezone-info {
+    text-align: center;
     background: #0f172a;
-    padding: 10px 15px;
+    padding: 15px;
     border-radius: 8px;
     border: 1px solid #334155;
 }
 
-.exchange-rate span {
-    font-weight: bold;
-    color: #f1f5f9;
+.timezone-label {
+    display: block;
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-weight: 500;
 }
 
-.refresh-rate {
-    background: #667eea;
+.timezone-offset {
+    color: #667eea;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+/* Time Zone Map Widget Styles */
+.timezone-map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Globe Wrapper */
+.globe-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    border-top: 1px solid #334155;
+}
+
+.globe-container {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    cursor: grab;
+    user-select: none;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        inset 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.globe-container:active {
+    cursor: grabbing;
+}
+
+#earthCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+}
+
+.globe-hint {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 10px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.timezone-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timezone-selector label {
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.timezone-selector select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    background: #0f172a;
+    color: #f1f5f9;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.timezone-selector select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.selected-timezone-display {
+    text-align: center;
+}
+
+.timezone-clock {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.timezone-time {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+.timezone-date {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.timezone-name {
+    color: #667eea;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.refresh-timezone-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+}
+
+.refresh-timezone-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.refresh-timezone-btn i {
+    margin-right: 5px;
+}
+
+/* Percentage Converter Widget Styles */
+.percentage-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.percentage-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.percentage-input-group label {
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.percentage-input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    background: #0f172a;
+    color: #f1f5f9;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.percentage-input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.percentage-input-group input::placeholder {
+    color: #64748b;
+}
+
+.percentage-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.percentage-result {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.percentage-result.result-subtract {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.percentage-result.result-add {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.result-label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.result-value {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.percentage-breakdown {
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #cbd5e0;
+    line-height: 1.6;
+    display: none;
+}
+
+.percentage-breakdown.show {
+    display: block;
+}
+
+.percentage-breakdown.hide {
+    display: none;
+}
+
+.percentage-breakdown-item {
+    margin-bottom: 8px;
+    padding: 5px 0;
+}
+
+.percentage-breakdown-item:last-child {
+    margin-bottom: 0;
+}
+
+.percentage-breakdown-item strong {
+    color: #667eea;
+}
+
+.percentage-clear-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+}
+
+.percentage-clear-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.percentage-clear-btn i {
+    margin-right: 8px;
+}
+
+/* Joke Generator Widget Styles */
+.joke-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 200px;
+}
+
+.joke-display {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.1));
+    border: 2px solid #334155;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
 }
 
-.refresh-rate:hover {
-    background: #5a67d8;
-    transform: rotate(180deg);
+.joke-display:hover {
+    border-color: #f59e0b;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15));
+}
+
+.joke-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #f1f5f9;
+    margin: 0;
+    text-align: center;
+}
+
+.joke-btn {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+}
+
+.joke-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+}
+
+.joke-btn i {
+    margin-right: 8px;
 }
 
 /* Scrollbar Styling */

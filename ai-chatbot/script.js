@@ -9,19 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeApp() {
-    // Set up file input event listener
-    const fileInput = document.getElementById('fileInput');
-    fileInput.addEventListener('change', handleFileUpload);
-    
-    // Set up drag and drop
-    const uploadArea = document.getElementById('uploadArea');
-    uploadArea.addEventListener('dragover', handleDragOver);
-    uploadArea.addEventListener('drop', handleDrop);
-    uploadArea.addEventListener('dragleave', handleDragLeave);
-    
     // Set up chat input
     const chatInput = document.getElementById('chatInput');
+    if (chatInput) {
     chatInput.addEventListener('keypress', handleKeyPress);
+    }
 }
 
 // File upload handling
@@ -313,8 +305,10 @@ function processText() {
 
 // Show chat interface
 function showChatInterface() {
-    document.getElementById('uploadSection').style.display = 'none';
-    document.getElementById('chatSection').style.display = 'block';
+    const chatSection = document.getElementById('chatSection');
+    if (chatSection) {
+        chatSection.style.display = 'block';
+    }
 }
 
 // Update document count
@@ -327,11 +321,14 @@ function updateDocumentCount() {
 function clearDocuments() {
     uploadedDocuments = [];
     documentContent = '';
-    document.getElementById('chatMessages').innerHTML = '';
-    document.getElementById('uploadSection').style.display = 'block';
-    document.getElementById('chatSection').style.display = 'none';
-    document.getElementById('fileInput').value = '';
-    document.getElementById('textInput').value = '';
+    const chatMessages = document.getElementById('chatMessages');
+    if (chatMessages) {
+        chatMessages.innerHTML = '';
+    }
+    const chatSection = document.getElementById('chatSection');
+    if (chatSection) {
+        chatSection.style.display = 'none';
+    }
 }
 
 // Chat functionality
@@ -614,6 +611,41 @@ function initializeCalendar() {
     setInterval(updateDigitalClock, 1000);
 }
 
+function initializeUTCTime() {
+    updateUTCTime();
+    
+    // Update UTC time every second
+    setInterval(updateUTCTime, 1000);
+}
+
+function updateUTCTime() {
+    const now = new Date();
+    const utcTimeElement = document.getElementById('utcTime');
+    const utcDateElement = document.getElementById('utcDate');
+    
+    if (utcTimeElement) {
+        const utcTimeString = now.toLocaleTimeString('en-US', { 
+            timeZone: 'UTC',
+            hour12: true,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        utcTimeElement.textContent = utcTimeString;
+    }
+    
+    if (utcDateElement) {
+        const utcDateString = now.toLocaleDateString('en-US', { 
+            timeZone: 'UTC',
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        utcDateElement.textContent = utcDateString;
+    }
+}
+
 function updateDigitalClock() {
     const now = new Date();
     const timeElement = document.getElementById('currentTime');
@@ -621,7 +653,7 @@ function updateDigitalClock() {
     
     if (timeElement) {
         const timeString = now.toLocaleTimeString('en-US', { 
-            hour12: false,
+            hour12: true,
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit'
@@ -716,84 +748,517 @@ function selectDate(day) {
     console.log(`Selected date: ${currentCalendarDate.getFullYear()}-${currentCalendarDate.getMonth() + 1}-${day}`);
 }
 
-// ==================== CURRENCY CONVERTER FUNCTIONALITY ====================
+// ==================== UTC TIME FUNCTIONALITY ====================
+// (Currency converter functionality removed and replaced with UTC time)
 
-let currentExchangeRate = 88.79; // Current rate as of today
+// ==================== TIME ZONE MAP FUNCTIONALITY ====================
 
-async function initializeCurrencyConverter() {
-    // Set initial exchange rate display with fallback
-    document.getElementById('exchangeRate').textContent = `1 USD = ${currentExchangeRate} INR`;
-    // Convert with the default USD value of 1
-    convertCurrency();
+let globeRotation = {
+    x: -15,
+    y: 0
+};
+
+let isDragging = false;
+let previousMousePosition = {
+    x: 0,
+    y: 0
+};
+
+let earthCanvas, earthCtx;
+let earthRadius = 70;
+let earthCenterX, earthCenterY;
+
+function initializeTimezoneMap() {
+    updateTimezoneTime();
+    // Update timezone time every second
+    setInterval(updateTimezoneTime, 1000);
     
-    // Try to fetch real-time rate
-    await updateExchangeRate();
+    // Initialize 3D Earth globe
+    initialize3DEarth();
 }
 
-function convertCurrency() {
-    const usdAmount = parseFloat(document.getElementById('usdAmount').value) || 0;
-    const inrAmount = usdAmount * currentExchangeRate;
+function initialize3DEarth() {
+    const canvas = document.getElementById('earthCanvas');
+    if (!canvas) return;
     
-    document.getElementById('inrAmount').value = inrAmount.toFixed(2);
+    earthCanvas = canvas;
+    earthCtx = canvas.getContext('2d');
+    earthCenterX = canvas.width / 2;
+    earthCenterY = canvas.height / 2;
+    
+    // Create Earth texture pattern
+    createEarthTexture();
+    
+    // Set up interaction
+    setupGlobeInteraction();
+    
+    // Start animation
+    animateEarth();
 }
 
-async function updateExchangeRate() {
-    const exchangeRateElement = document.getElementById('exchangeRate');
-    const refreshButton = document.querySelector('.refresh-rate');
+function createEarthTexture() {
+    // This function creates a canvas-based Earth texture
+    // We'll draw continents and oceans on a separate canvas
+    const textureCanvas = document.createElement('canvas');
+    textureCanvas.width = 360;
+    textureCanvas.height = 180;
+    const texCtx = textureCanvas.getContext('2d');
     
-    // Show loading state
-    if (refreshButton) {
-        refreshButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-        refreshButton.disabled = true;
+    // Draw ocean base
+    texCtx.fillStyle = '#1e40af';
+    texCtx.fillRect(0, 0, textureCanvas.width, textureCanvas.height);
+    
+    // Draw darker ocean areas
+    const oceanGradient = texCtx.createLinearGradient(0, 0, 0, textureCanvas.height);
+    oceanGradient.addColorStop(0, '#0a4d8c');
+    oceanGradient.addColorStop(0.5, '#0a3a6b');
+    oceanGradient.addColorStop(1, '#0a2a4f');
+    texCtx.fillStyle = oceanGradient;
+    texCtx.fillRect(0, 0, textureCanvas.width, textureCanvas.height);
+    
+    // Draw continents (simplified shapes)
+    // North America
+    texCtx.fillStyle = '#2d5016';
+    texCtx.beginPath();
+    texCtx.ellipse(80, 50, 45, 35, 0, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    // South America
+    texCtx.beginPath();
+    texCtx.ellipse(100, 120, 25, 50, 0.3, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    // Europe/Africa
+    texCtx.fillStyle = '#3d6b1f';
+    texCtx.beginPath();
+    texCtx.ellipse(170, 70, 30, 80, 0, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    // Asia
+    texCtx.fillStyle = '#4a7c28';
+    texCtx.beginPath();
+    texCtx.ellipse(240, 50, 50, 40, 0, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    // Australia
+    texCtx.fillStyle = '#2d5016';
+    texCtx.beginPath();
+    texCtx.ellipse(280, 130, 25, 20, 0, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    // Add desert regions
+    texCtx.fillStyle = '#8b7355';
+    texCtx.beginPath();
+    texCtx.ellipse(170, 100, 40, 30, 0, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    // Polar ice caps
+    const iceGradient = texCtx.createRadialGradient(180, 0, 0, 180, 0, 40);
+    iceGradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+    iceGradient.addColorStop(1, 'rgba(200, 220, 240, 0.5)');
+    texCtx.fillStyle = iceGradient;
+    texCtx.beginPath();
+    texCtx.ellipse(180, 10, 180, 25, 0, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    texCtx.beginPath();
+    texCtx.ellipse(180, 170, 180, 25, 0, 0, 2 * Math.PI);
+    texCtx.fill();
+    
+    // Store texture
+    earthCanvas.earthTexture = textureCanvas;
+}
+
+function draw3DEarth() {
+    const ctx = earthCtx;
+    const canvas = earthCanvas;
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    const texture = canvas.earthTexture;
+    if (!texture) return;
+    
+    const radius = earthRadius;
+    const centerX = earthCenterX;
+    const centerY = earthCenterY;
+    
+    // Calculate rotation
+    const rotY = globeRotation.y * Math.PI / 180;
+    const rotX = globeRotation.x * Math.PI / 180;
+    
+    // Draw sphere with 3D projection
+    const imageData = ctx.createImageData(canvas.width, canvas.height);
+    const data = imageData.data;
+    
+    for (let y = 0; y < canvas.height; y++) {
+        for (let x = 0; x < canvas.width; x++) {
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist <= radius) {
+                // Calculate 3D position
+                const z = Math.sqrt(radius * radius - dist * dist);
+                const nx = dx / radius;
+                const ny = dy / radius;
+                const nz = z / radius;
+                
+                // Apply rotations
+                let px = nx;
+                let py = ny;
+                let pz = nz;
+                
+                // Rotate around Y axis
+                const tempX = px * Math.cos(rotY) + pz * Math.sin(rotY);
+                const tempZ = -px * Math.sin(rotY) + pz * Math.cos(rotY);
+                px = tempX;
+                pz = tempZ;
+                
+                // Rotate around X axis
+                const tempY = py * Math.cos(rotX) - pz * Math.sin(rotX);
+                pz = py * Math.sin(rotX) + pz * Math.cos(rotX);
+                py = tempY;
+                
+                // Map to texture coordinates
+                const u = (Math.atan2(px, pz) + Math.PI) / (2 * Math.PI);
+                const v = (Math.asin(py) + Math.PI / 2) / Math.PI;
+                
+                const texX = Math.floor(u * texture.width) % texture.width;
+                const texY = Math.floor(v * texture.height);
+                
+                // Get color from texture
+                const texCtx = texture.getContext('2d');
+                const texImageData = texCtx.getImageData(texX, texY, 1, 1);
+                const r = texImageData.data[0];
+                const g = texImageData.data[1];
+                const b = texImageData.data[2];
+                
+                // Apply lighting (use rotated normal)
+                const lightX = 0.5;
+                const lightY = -0.5;
+                const lightZ = 1;
+                const lightLength = Math.sqrt(lightX * lightX + lightY * lightY + lightZ * lightZ);
+                const dot = (px * lightX + py * lightY + pz * lightZ) / lightLength;
+                const lightIntensity = Math.max(0, dot);
+                const ambient = 0.3;
+                const brightness = ambient + (1 - ambient) * lightIntensity;
+                
+                const index = (y * canvas.width + x) * 4;
+                data[index] = Math.min(255, r * brightness);
+                data[index + 1] = Math.min(255, g * brightness);
+                data[index + 2] = Math.min(255, b * brightness);
+                data[index + 3] = 255;
+            }
+        }
     }
+    
+    ctx.putImageData(imageData, 0, 0);
+    
+    // Draw atmospheric glow
+    const gradient = ctx.createRadialGradient(centerX, centerY, radius * 0.9, centerX, centerY, radius * 1.2);
+    gradient.addColorStop(0, 'transparent');
+    gradient.addColorStop(1, 'rgba(100, 150, 255, 0.15)');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius * 1.15, 0, 2 * Math.PI);
+    ctx.fill();
+}
+
+function animateEarth() {
+    draw3DEarth();
+    requestAnimationFrame(animateEarth);
+}
+
+function setupGlobeInteraction() {
+    const globeContainer = document.getElementById('globeContainer');
+    if (!globeContainer) return;
+    
+    globeContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        previousMousePosition.x = e.clientX;
+        previousMousePosition.y = e.clientY;
+        globeContainer.style.cursor = 'grabbing';
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        
+        const deltaX = e.clientX - previousMousePosition.x;
+        const deltaY = e.clientY - previousMousePosition.y;
+        
+        globeRotation.y += deltaX * 0.5;
+        globeRotation.x += deltaY * 0.5;
+        globeRotation.x = Math.max(-90, Math.min(90, globeRotation.x));
+        
+        previousMousePosition.x = e.clientX;
+        previousMousePosition.y = e.clientY;
+    });
+    
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            globeContainer.style.cursor = 'grab';
+        }
+    });
+    
+    globeContainer.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        isDragging = true;
+        previousMousePosition.x = e.touches[0].clientX;
+        previousMousePosition.y = e.touches[0].clientY;
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        
+        const deltaX = e.touches[0].clientX - previousMousePosition.x;
+        const deltaY = e.touches[0].clientY - previousMousePosition.y;
+        
+        globeRotation.y += deltaX * 0.5;
+        globeRotation.x += deltaY * 0.5;
+        globeRotation.x = Math.max(-90, Math.min(90, globeRotation.x));
+        
+        previousMousePosition.x = e.touches[0].clientX;
+        previousMousePosition.y = e.touches[0].clientY;
+    });
+    
+    document.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+}
+
+function updateTimezoneTime() {
+    const timezoneSelect = document.getElementById('timezoneSelect');
+    const timezoneTimeElement = document.getElementById('timezoneTime');
+    const timezoneDateElement = document.getElementById('timezoneDate');
+    const timezoneNameElement = document.getElementById('timezoneName');
+    
+    if (!timezoneSelect || !timezoneTimeElement || !timezoneDateElement || !timezoneNameElement) {
+        return;
+    }
+    
+    const selectedTimezone = timezoneSelect.value;
+    const now = new Date();
     
     try {
-        // Fetch real-time exchange rate from a free API
-        const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-        const data = await response.json();
+        // Format timezone name for display
+        const timezoneParts = selectedTimezone.split('/');
+        const displayName = timezoneParts[timezoneParts.length - 1].replace(/_/g, ' ');
         
-        if (data && data.rates && data.rates.INR) {
-            currentExchangeRate = data.rates.INR;
-            exchangeRateElement.textContent = `1 USD = ${currentExchangeRate.toFixed(2)} INR`;
-            convertCurrency();
-        } else {
-            // Fallback to current known rate if API fails
-            currentExchangeRate = 88.79;
-            exchangeRateElement.textContent = `1 USD = ${currentExchangeRate} INR`;
-            convertCurrency();
+        // Get time in selected timezone
+        const timeString = now.toLocaleTimeString('en-US', {
+            timeZone: selectedTimezone,
+            hour12: true,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        
+        const dateString = now.toLocaleDateString('en-US', {
+            timeZone: selectedTimezone,
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Calculate UTC offset
+        const utcTime = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
+        const localTime = new Date(now.toLocaleString('en-US', { timeZone: selectedTimezone }));
+        const offset = (localTime - utcTime) / (1000 * 60 * 60); // Offset in hours
+        
+        let offsetString = offset >= 0 ? '+' : '';
+        offsetString += offset.toFixed(0);
+        if (offset % 1 !== 0) {
+            offsetString += ':' + (Math.abs(offset % 1) * 60).toFixed(0).padStart(2, '0');
         }
+        
+        timezoneTimeElement.textContent = timeString;
+        timezoneDateElement.textContent = dateString;
+        timezoneNameElement.textContent = `${displayName} (UTC${offsetString})`;
     } catch (error) {
-        console.log('Exchange rate API unavailable, using fallback rate');
-        // Fallback to current known rate if API fails
-        currentExchangeRate = 88.79;
-        exchangeRateElement.textContent = `1 USD = ${currentExchangeRate} INR`;
-        convertCurrency();
-    } finally {
-        // Reset button state
-        if (refreshButton) {
-            refreshButton.innerHTML = '<i class="fas fa-sync-alt"></i>';
-            refreshButton.disabled = false;
-        }
+        console.error('Error updating timezone time:', error);
+        timezoneTimeElement.textContent = 'Error';
+        timezoneDateElement.textContent = 'Unable to load timezone';
+        timezoneNameElement.textContent = selectedTimezone;
     }
+}
+
+// ==================== PERCENTAGE CONVERTER ====================
+
+function initializePercentageConverter() {
+    // Initialize with default values
+    calculatePercentage();
+}
+
+function calculatePercentage() {
+    const valueInput = document.getElementById('valueInput');
+    const percentageInput = document.getElementById('percentageInput');
+    const resultElement = document.getElementById('percentageResult');
+    const subtractResultElement = document.getElementById('percentageSubtractResult');
+    const addResultElement = document.getElementById('percentageAddResult');
+    const breakdownElement = document.getElementById('percentageBreakdown');
+    
+    if (!valueInput || !percentageInput || !resultElement || !subtractResultElement || !addResultElement || !breakdownElement) {
+        return;
+    }
+    
+    const value = parseFloat(valueInput.value);
+    const percentage = parseFloat(percentageInput.value);
+    
+    // Clear result if inputs are invalid
+    if (isNaN(value) || isNaN(percentage) || valueInput.value === '' || percentageInput.value === '') {
+        resultElement.textContent = '0';
+        subtractResultElement.textContent = '0';
+        addResultElement.textContent = '0';
+        breakdownElement.classList.add('hide');
+        breakdownElement.innerHTML = '';
+        return;
+    }
+    
+    // Calculate the result
+    const result = (value * percentage) / 100;
+    const subtractResult = value - result;
+    const addResult = value + result;
+    
+    // Format the result with proper decimals
+    const formattedResult = formatNumber(result);
+    const formattedSubtractResult = formatNumber(subtractResult);
+    const formattedAddResult = formatNumber(addResult);
+    const formattedValue = formatNumber(value);
+    const formattedPercentage = formatNumber(percentage);
+    
+    // Display the results
+    resultElement.textContent = formattedResult;
+    subtractResultElement.textContent = formattedSubtractResult;
+    addResultElement.textContent = formattedAddResult;
+    
+    // Show breakdown
+    breakdownElement.classList.remove('hide');
+    breakdownElement.innerHTML = `
+        <div class="percentage-breakdown-item">
+            <strong>Calculation:</strong> ${formattedValue} × ${formattedPercentage}% = ${formattedResult}
+        </div>
+        <div class="percentage-breakdown-item">
+            <strong>Percentage Amount:</strong> ${formattedResult}
+        </div>
+        <div class="percentage-breakdown-item">
+            <strong>Original Value:</strong> ${formattedValue}
+        </div>
+        <div class="percentage-breakdown-item">
+            <strong>Value Minus Percentage:</strong> ${formattedSubtractResult}
+        </div>
+        <div class="percentage-breakdown-item">
+            <strong>Value Plus Percentage:</strong> ${formattedAddResult}
+        </div>
+    `;
+}
+
+function formatNumber(num) {
+    // Format number to show up to 2 decimal places, removing unnecessary zeros
+    if (num % 1 === 0) {
+        return num.toString();
+    }
+    return parseFloat(num.toFixed(2)).toString();
+}
+
+function clearPercentageCalculator() {
+    const valueInput = document.getElementById('valueInput');
+    const percentageInput = document.getElementById('percentageInput');
+    const resultElement = document.getElementById('percentageResult');
+    const subtractResultElement = document.getElementById('percentageSubtractResult');
+    const addResultElement = document.getElementById('percentageAddResult');
+    const breakdownElement = document.getElementById('percentageBreakdown');
+    
+    if (valueInput) valueInput.value = '';
+    if (percentageInput) percentageInput.value = '';
+    if (resultElement) resultElement.textContent = '0';
+    if (subtractResultElement) subtractResultElement.textContent = '0';
+    if (addResultElement) addResultElement.textContent = '0';
+    if (breakdownElement) {
+        breakdownElement.classList.add('hide');
+        breakdownElement.innerHTML = '';
+    }
+}
+
+// ==================== RANDOM JOKE GENERATOR ====================
+
+const jokes = [
+    "Why don't scientists trust atoms? Because they make up everything!",
+    "Why did the scarecrow win an award? He was outstanding in his field!",
+    "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+    "Why don't eggs tell jokes? They'd crack each other up!",
+    "What do you call a bear with no teeth? A gummy bear!",
+    "Why did the math book look so sad? Because it had too many problems!",
+    "What's the best thing about Switzerland? I don't know, but the flag is a big plus!",
+    "Why don't programmers like nature? It has too many bugs!",
+    "How do you organize a space party? You planet!",
+    "Why did the coffee file a police report? It got mugged!",
+    "What do you call a fake noodle? An impasta!",
+    "Why did the cookie go to the doctor? Because it felt crummy!",
+    "What's a computer's favorite snack? Microchips!",
+    "Why don't programmers like to go outside? The sun gives them compiler errors!",
+    "What did one wall say to the other wall? I'll meet you at the corner!",
+    "Why was the math book sad? Because it had too many problems!",
+    "What do you call a sleeping bull? A bulldozer!",
+    "Why did the golfer bring two pairs of pants? In case he got a hole in one!",
+    "What do you call a bear with no socks on? Barefoot!",
+    "Why don't scientists trust stairs? Because they're always up to something!",
+    "What do you call cheese that isn't yours? Nacho cheese!",
+    "Why did the bicycle fall over? Because it was two tired!",
+    "What's orange and sounds like a parrot? A carrot!",
+    "Why did the scarecrow win an award? He was outstanding in his field!",
+    "What do you call a fish wearing a bowtie? Sofishticated!",
+    "Why don't eggs tell jokes? They'd crack each other up!",
+    "What's a computer's favorite beat? An algorithm!",
+    "Why did the coffee file a police report? It got mugged!",
+    "What do you call a factory that makes okay products? A satisfactory!",
+    "Why did the math teacher break up with the geography teacher? Because they had irreconcilable differences!",
+    "What do you get when you cross a snowman and a vampire? Frostbite!",
+    "Why don't programmers like to go outside? There are too many bugs in the world!",
+    "What's a skeleton's favorite instrument? The trombone!",
+    "Why did the scarecrow get promoted? He was outstanding in his field!",
+    "What do you call a bear with no teeth? A gummy bear!"
+];
+
+function initializeJokeGenerator() {
+    // Generate a joke on page load
+    generateRandomJoke();
+}
+
+function generateRandomJoke() {
+    const jokeTextElement = document.getElementById('jokeText');
+    
+    if (!jokeTextElement) {
+        return;
+    }
+    
+    // Get a random joke
+    const randomIndex = Math.floor(Math.random() * jokes.length);
+    const randomJoke = jokes[randomIndex];
+    
+    // Add fade effect
+    jokeTextElement.style.opacity = '0';
+    
+    setTimeout(() => {
+        jokeTextElement.textContent = randomJoke;
+        
+        jokeTextElement.style.transition = 'opacity 0.3s ease';
+        jokeTextElement.style.opacity = '1';
+    }, 150);
 }
 
 // ==================== INITIALIZATION ====================
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
-    const fileInput = document.getElementById('fileInput');
-    const uploadArea = document.getElementById('uploadArea');
-    
-    // File input change event
-    fileInput.addEventListener('change', handleFileUpload);
-    
-    // Drag and drop events
-    uploadArea.addEventListener('dragover', handleDragOver);
-    uploadArea.addEventListener('dragleave', handleDragLeave);
-    uploadArea.addEventListener('drop', handleDrop);
-    
     // Initialize widgets
     initializeCalculator();
     initializeCalendar();
-    initializeCurrencyConverter();
+    initializeUTCTime();
+    initializeTimezoneMap();
+    initializePercentageConverter();
+    initializeJokeGenerator();
 });

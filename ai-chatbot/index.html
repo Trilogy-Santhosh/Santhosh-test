@@ -6,7 +6,6 @@
     <title>San Tools</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,7 +13,7 @@
         <header class="header">
             <div class="header-content">
                 <h1><i class="fas fa-tools"></i> San Tools</h1>
-                <p>Upload documents, use calculator, check calendar, convert currency, and get AI-powered summaries</p>
+                <p>Use calculator, check calendar, view UTC time, and get AI-powered summaries</p>
             </div>
         </header>
 
@@ -22,23 +21,8 @@
         <main class="main-content">
             <!-- Dashboard Grid -->
             <div class="dashboard-grid">
-                <!-- Document Upload Section - Full Width Top -->
-                <section class="upload-section widget" id="uploadSection">
-                    <div class="widget-header">
-                        <h3><i class="fas fa-file-upload"></i> Document Upload</h3>
-                    </div>
-                    <div class="upload-area" id="uploadArea">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Drag & drop PDF or TXT files here, or click to browse</p>
-                        <input type="file" id="fileInput" accept=".pdf,.txt" multiple>
-                        <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
-                            Choose Files
-                        </button>
-                    </div>
-                </section>
-
-                <!-- Bottom Row - Three Widgets -->
-                <div class="widgets-bottom-row">
+                <!-- Top Row - Three Widgets -->
+                <div class="widgets-top-row">
                     <!-- Calculator Widget -->
                     <section class="calculator-section widget">
                         <div class="widget-header">
@@ -91,29 +75,115 @@
                         </div>
                     </section>
 
-                    <!-- Currency Converter Widget -->
-                    <section class="currency-section widget">
+                    <!-- UTC Time Widget -->
+                    <section class="utc-time-section widget">
                         <div class="widget-header">
-                            <h3><i class="fas fa-exchange-alt"></i> Currency Converter</h3>
+                            <h3><i class="fas fa-globe"></i> UTC Time</h3>
                         </div>
-                        <div class="currency-converter">
-                            <div class="currency-input">
-                                <label>USD (US Dollar)</label>
-                                <input type="number" id="usdAmount" placeholder="Enter amount" value="1" oninput="convertCurrency()">
+                        <div class="utc-time-container">
+                            <div class="utc-clock">
+                                <div class="utc-time" id="utcTime">00:00:00</div>
+                                <div class="utc-date" id="utcDate">Monday, January 1, 2024</div>
                             </div>
-                            <div class="currency-arrow">
-                                <i class="fas fa-arrow-right"></i>
+                            <div class="timezone-info">
+                                <span class="timezone-label">Coordinated Universal Time</span>
+                                <div class="timezone-offset">UTC+0</div>
                             </div>
-                            <div class="currency-output">
-                                <label>INR (Indian Rupee)</label>
-                                <input type="number" id="inrAmount" placeholder="0.00" readonly>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Second Row - Three New Widgets -->
+                <div class="widgets-second-row">
+                    <!-- Time Zone Map Widget -->
+                    <section class="timezone-map-section widget">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-globe-americas"></i> Time Zone Map</h3>
+                        </div>
+                        <div class="timezone-map-container">
+                            <div class="timezone-selector">
+                                <label for="timezoneSelect">Select Timezone:</label>
+                                <select id="timezoneSelect" onchange="updateTimezoneTime()">
+                                    <option value="America/New_York">New York (EST/EDT)</option>
+                                    <option value="America/Chicago">Chicago (CST/CDT)</option>
+                                    <option value="America/Denver">Denver (MST/MDT)</option>
+                                    <option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+                                    <option value="Europe/London">London (GMT/BST)</option>
+                                    <option value="Europe/Paris">Paris (CET/CEST)</option>
+                                    <option value="Asia/Tokyo">Tokyo (JST)</option>
+                                    <option value="Asia/Shanghai">Shanghai (CST)</option>
+                                    <option value="Asia/Dubai">Dubai (GST)</option>
+                                    <option value="Australia/Sydney">Sydney (AEDT/AEST)</option>
+                                    <option value="Asia/Kolkata">Mumbai (IST)</option>
+                                    <option value="UTC" selected>UTC (Coordinated Universal Time)</option>
+                                </select>
                             </div>
-                            <div class="exchange-rate">
-                                <span id="exchangeRate">1 USD = 83.25 INR</span>
-                                <button class="refresh-rate" onclick="updateExchangeRate()">
-                                    <i class="fas fa-sync-alt"></i>
-                                </button>
+                            <div class="selected-timezone-display">
+                                <div class="timezone-clock">
+                                    <div class="timezone-time" id="timezoneTime">00:00:00</div>
+                                    <div class="timezone-date" id="timezoneDate">Monday, January 1, 2024</div>
+                                </div>
+                                <div class="timezone-name" id="timezoneName">UTC</div>
                             </div>
+                            <button class="refresh-timezone-btn" onclick="updateTimezoneTime()">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                            <div class="globe-wrapper">
+                                <div class="globe-container" id="globeContainer">
+                                    <canvas id="earthCanvas" width="280" height="280"></canvas>
+                                </div>
+                                <div class="globe-hint">← Drag to rotate →</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Percentage Converter Widget -->
+                    <section class="percentage-converter-section widget">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-percentage"></i> Percentage Converter</h3>
+                        </div>
+                        <div class="percentage-container">
+                            <div class="percentage-input-group">
+                                <label for="valueInput">Value:</label>
+                                <input type="number" id="valueInput" placeholder="Enter value" step="0.01" oninput="calculatePercentage()">
+                            </div>
+                            <div class="percentage-input-group">
+                                <label for="percentageInput">Percentage (%):</label>
+                                <input type="number" id="percentageInput" placeholder="Enter percentage" step="0.01" oninput="calculatePercentage()">
+                            </div>
+                            <div class="percentage-results">
+                                <div class="percentage-result">
+                                    <div class="result-label">Percentage Amount:</div>
+                                    <div class="result-value" id="percentageResult">0</div>
+                                </div>
+                                <div class="percentage-result result-subtract">
+                                    <div class="result-label">Value Minus Percentage:</div>
+                                    <div class="result-value" id="percentageSubtractResult">0</div>
+                                </div>
+                                <div class="percentage-result result-add">
+                                    <div class="result-label">Value Plus Percentage:</div>
+                                    <div class="result-value" id="percentageAddResult">0</div>
+                                </div>
+                            </div>
+                            <div class="percentage-breakdown hide" id="percentageBreakdown"></div>
+                            <button class="percentage-clear-btn" onclick="clearPercentageCalculator()">
+                                <i class="fas fa-redo"></i> Clear
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Random Joke Generator Widget -->
+                    <section class="joke-generator-section widget">
+                        <div class="widget-header">
+                            <h3><i class="fas fa-laugh"></i> Random Joke</h3>
+                        </div>
+                        <div class="joke-container">
+                            <div class="joke-display" id="jokeDisplay">
+                                <p class="joke-text" id="jokeText">Click the button below to get a joke!</p>
+                            </div>
+                            <button class="joke-btn" onclick="generateRandomJoke()">
+                                <i class="fas fa-redo"></i> New Joke
+                            </button>
                         </div>
                     </section>
                 </div>
