@@ -1226,6 +1226,9 @@ const jokes = [
 function initializeJokeGenerator() {
     // Generate a joke on page load
     generateRandomJoke();
+    
+    // Initialize reminders
+    initializeReminders();
 }
 
 function generateRandomJoke() {
@@ -1249,6 +1252,111 @@ function generateRandomJoke() {
         jokeTextElement.style.opacity = '1';
     }, 150);
 }
+
+// ==================== REMINDER PANEL FUNCTIONALITY ====================
+
+let reminders = [];
+
+function initializeReminders() {
+    // Load reminders from localStorage
+    const savedReminders = localStorage.getItem('reminders');
+    if (savedReminders) {
+        reminders = JSON.parse(savedReminders);
+    }
+    renderReminders();
+}
+
+function showAddReminderForm() {
+    const form = document.getElementById('addReminderForm');
+    const input = document.getElementById('reminderInput');
+    if (form) {
+        form.style.display = 'block';
+        input.focus();
+    }
+}
+
+function hideAddReminderForm() {
+    const form = document.getElementById('addReminderForm');
+    const input = document.getElementById('reminderInput');
+    if (form) {
+        form.style.display = 'none';
+        if (input) input.value = '';
+    }
+}
+
+function addReminder() {
+    const input = document.getElementById('reminderInput');
+    if (!input) return;
+    
+    const reminderText = input.value.trim();
+    if (!reminderText) {
+        alert('Please enter a reminder!');
+        return;
+    }
+    
+    // Add reminder with timestamp
+    const reminder = {
+        id: Date.now(),
+        text: reminderText,
+        createdAt: new Date().toISOString()
+    };
+    
+    reminders.push(reminder);
+    saveReminders();
+    renderReminders();
+    
+    // Clear input and hide form
+    input.value = '';
+    hideAddReminderForm();
+}
+
+function deleteReminder(id) {
+    reminders = reminders.filter(reminder => reminder.id !== id);
+    saveReminders();
+    renderReminders();
+}
+
+function saveReminders() {
+    localStorage.setItem('reminders', JSON.stringify(reminders));
+}
+
+function renderReminders() {
+    const remindersList = document.getElementById('remindersList');
+    if (!remindersList) return;
+    
+    if (reminders.length === 0) {
+        remindersList.innerHTML = '<div class="reminders-empty">No reminders yet. Click the + button to add one!</div>';
+        return;
+    }
+    
+    remindersList.innerHTML = reminders.map(reminder => `
+        <div class="reminder-note">
+            <p class="reminder-note-content">${escapeHtml(reminder.text)}</p>
+            <button class="reminder-note-delete" onclick="deleteReminder(${reminder.id})" title="Delete reminder">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `).join('');
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Allow Enter key to save (with Shift+Enter for new line)
+document.addEventListener('DOMContentLoaded', function() {
+    const reminderInput = document.getElementById('reminderInput');
+    if (reminderInput) {
+        reminderInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                addReminder();
+            }
+        });
+    }
+});
 
 // ==================== INITIALIZATION ====================
 
