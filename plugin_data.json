@@ -1,0 +1,235 @@
+{
+  "plugins": [
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/themes/25.11-release/res/feature/theme-marketing",
+      "name": "theme-marketing",
+      "category": "Theme"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/themes/25.11-release/res/feature/theme-support",
+      "name": "theme-support",
+      "category": "Theme"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/themes/25.11-release/res/feature/theme-hermes",
+      "name": "theme-hermes",
+      "category": "Theme"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/themes/25.11-release/res/feature/theme-base",
+      "name": "theme-base",
+      "category": "Theme"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/memberships",
+      "name": "memberships",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/grouphubs",
+      "name": "grouphubs",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/editors",
+      "name": "editors",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/occasions",
+      "name": "occasions",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/responsivepeak",
+      "name": "responsivepeak",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/responsivebase",
+      "name": "responsivebase",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/user",
+      "name": "user",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/tkb",
+      "name": "tkb",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/support",
+      "name": "support",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/search",
+      "name": "search",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/qanda",
+      "name": "qanda",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/nodes",
+      "name": "nodes",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/notes",
+      "name": "notes",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/notificationfeed",
+      "name": "notificationfeed",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/messages",
+      "name": "messages",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/media",
+      "name": "media",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/kudos",
+      "name": "kudos",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/ideas",
+      "name": "ideas",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/forums",
+      "name": "forums",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/contests",
+      "name": "contests",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/communities",
+      "name": "communities",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/codebook",
+      "name": "codebook",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/categories",
+      "name": "categories",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/blogs",
+      "name": "blogs",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/avatars",
+      "name": "avatars",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/authentication",
+      "name": "authentication",
+      "category": "Angular Feature"
+    },
+    {
+      "path": "/home/lithium/customer/lansweeper.stage/plugins/core/lithium/angular-li/25.11-release/res/feature/attachments",
+      "name": "attachments",
+      "category": "Angular Feature"
+    }
+  ],
+  "statistics": {
+    "total_plugins": 31,
+    "unique_plugins": 31,
+    "category_counts": {
+      "Theme": 4,
+      "Angular Feature": 27
+    },
+    "feature_counts": {
+      "theme-marketing": 1,
+      "theme-support": 1,
+      "theme-hermes": 1,
+      "theme-base": 1,
+      "memberships": 1,
+      "grouphubs": 1,
+      "editors": 1,
+      "occasions": 1,
+      "responsivepeak": 1,
+      "responsivebase": 1,
+      "user": 1,
+      "tkb": 1,
+      "support": 1,
+      "search": 1,
+      "qanda": 1,
+      "nodes": 1,
+      "notes": 1,
+      "notificationfeed": 1,
+      "messages": 1,
+      "media": 1,
+      "kudos": 1,
+      "ideas": 1,
+      "forums": 1,
+      "contests": 1,
+      "communities": 1,
+      "codebook": 1,
+      "categories": 1,
+      "blogs": 1,
+      "avatars": 1,
+      "authentication": 1,
+      "attachments": 1
+    },
+    "versions": {
+      "25.11-release": [
+        "theme-marketing",
+        "theme-support",
+        "theme-hermes",
+        "theme-base",
+        "memberships",
+        "grouphubs",
+        "editors",
+        "occasions",
+        "responsivepeak",
+        "responsivebase",
+        "user",
+        "tkb",
+        "support",
+        "search",
+        "qanda",
+        "nodes",
+        "notes",
+        "notificationfeed",
+        "messages",
+        "media",
+        "kudos",
+        "ideas",
+        "forums",
+        "contests",
+        "communities",
+        "codebook",
+        "categories",
+        "blogs",
+        "avatars",
+        "authentication",
+        "attachments"
+      ]
+    }
+  }
+}

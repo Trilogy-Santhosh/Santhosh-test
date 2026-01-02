@@ -1,0 +1,25 @@
+{
+  "approach": "API-Level Filtering (Simple & Effective)",
+  "dashboards": {
+    "139": {
+      "name": "Khoros Classic Community Open Tickets",
+      "brand_name": "Khoros Community Classic",
+      "status": "open",
+      "description": "Uses Kayako API filter: status=open & brand='Khoros Community Classic'"
+    },
+    "143": {
+      "name": "Khoros Aurora Open Tickets",
+      "brand_name": "Khoros Community Aurora",
+      "status": "open",
+      "description": "Uses Kayako API filter: status=open & brand='Khoros Community Aurora'"
+    }
+  },
+  "check_interval": 60,
+  "benefits": [
+    "✅ Faster - API does the filtering",
+    "✅ More accurate - Uses exact brand names",
+    "✅ Simpler code - No complex keyword matching",
+    "✅ More reliable - No false positives/negatives"
+  ],
+  "note": "If cases don't appear, verify the exact brand names in Kayako admin panel"
+}

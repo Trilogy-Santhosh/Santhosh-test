@@ -1,0 +1,69 @@
+================================================================================
+PLUGIN ANALYSIS REPORT - lansweeper.stage
+Analysis Time: 2025-12-11 19:24:41
+Time Range: Past 24 hours
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Total Plugin Load Events: 31
+Unique Plugins: 31
+
+PLUGINS BY CATEGORY
+--------------------------------------------------------------------------------
+  Angular Feature       27 plugins
+  Theme                  4 plugins
+
+VERSION INFORMATION
+--------------------------------------------------------------------------------
+  Version 25.11-release: 31 plugins
+
+THEME PLUGINS
+--------------------------------------------------------------------------------
+  ✓ theme-base
+  ✓ theme-hermes
+  ✓ theme-marketing
+  ✓ theme-support
+
+ANGULAR FEATURE PLUGINS
+--------------------------------------------------------------------------------
+  ✓ attachments
+  ✓ authentication
+  ✓ avatars
+  ✓ blogs
+  ✓ categories
+  ✓ codebook
+  ✓ communities
+  ✓ contests
+  ✓ editors
+  ✓ forums
+  ✓ grouphubs
+  ✓ ideas
+  ✓ kudos
+  ✓ media
+  ✓ memberships
+  ✓ messages
+  ✓ nodes
+  ✓ notes
+  ✓ notificationfeed
+  ✓ occasions
+  ✓ qanda
+  ✓ responsivebase
+  ✓ responsivepeak
+  ✓ search
+  ✓ support
+  ✓ tkb
+  ✓ user
+
+ISSUES & WARNINGS
+--------------------------------------------------------------------------------
+  ✓ No issues detected
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+  • Instance is running version 25.11-release
+  • 4 theme plugins loaded
+  • 27 Angular features enabled
+  • Custom plugin 'custom.lansweeper.lansweeper.stage' has no components
+
+================================================================================

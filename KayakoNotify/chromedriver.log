@@ -1,0 +1,448 @@
+[1767337852.976][INFO]: Starting ChromeDriver 143.0.7499.169 (164b20aab62509dad21fd46383951aeec084ad1e-refs/branch-heads/7499@{#3399}) on port 58413
+[1767337852.976][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1767337852.978][INFO]: ChromeDriver was started successfully on port 58413
+[1767337853.211][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND InitSession {
+   "capabilities": {
+      "alwaysMatch": {
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--headless=new", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1920,1080", "--disable-blink-features=AutomationControlled", "--remote-debugging-port=9222", "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" ],
+            "binary": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "extensions": [  ]
+         },
+         "pageLoadStrategy": "normal"
+      },
+      "firstMatch": [ {
+      } ]
+   }
+}
+[1767337853.213][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1767337853.213][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1767337853.213][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
+[1767337853.213][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
+[1767337853.213][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --allow-pre-commit-input --disable-background-networking --disable-blink-features=AutomationControlled --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-features=IgnoreDuplicateNavs,Prewarm --disable-gpu --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging=stderr --headless=new --log-level=0 --no-first-run --no-sandbox --no-service-autorun --password-store=basic --remote-debugging-port=9222 --test-type=webdriver --use-mock-keychain --user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 --user-data-dir=/var/folders/s2/2x98tc6s7gx9jch9gp7szk3r0000gn/T/.org.chromium.Chromium.scoped_dir.HxcYVT --window-size=1920,1080 data:,
+[1767337853.428][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[94699:5471862:0102/124053.460992:INFO:components/enterprise/browser/controller/chrome_browser_cloud_management_controller.cc:206] No machine level policy manager exists.
+[1767337853.490][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE InitSession {
+   "capabilitie[1767337853.512][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "143.0.7499.170",
+      "chrome": {
+         "chromedriverVersion": "143.0.7499.169 (164b20aab62509dad21fd46383951aeec084ad1e-refs/branch-heads/7499@{#3399})",
+         "userDataDir": "/var/folders/s2/2x98tc6s7gx9jch9gp7szk3r0000gn/T/.org.chromium.Chromium.scoped_dir.wraYKj"
+      },
+      "fedcm:accounts": true,
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:9222"
+      },
+      "goog:processID": 94687,
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "mac",
+      "proxy": {
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:extension:minPinLength": true,
+      "webauthn:extension:prf": true,
+      "~~~": "..."
+   },
+   "sessionId": "1ffa243f5d84d18b2f697838c1d5fafa"
+}
+[1767337853.518][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] COMMAND SetTimeouts {
+   "pageLoad": 30000
+}
+[1767337853.518][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] RESPONSE SetTimeouts
+[1767337853.522][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] COMMAND Navigate {
+   "url": "https://central-supportdesk.kayako.com/agent/conversations/view/143"
+}
+[1767337853.522][INFO]: Waiting for pending navigations...
+[94687:5471740:0102/124057.217121:INFO:CONSOLE:7448] "136ed7d74b", source: https://assets.kayako.com/assets/vendor-e9931015706b38eee39caf89306b5e5e.js (7448)
+[94741:5472315:0102/124057.571558:ERROR:sandbox/mac/system_services.cc:31] SetApplicationIsDaemon: Error Domain=NSOSStatusErrorDomain Code=-50 "paramErr: error in user parameter list" (-50)
+[1767337858.614][INFO]: Done waiting for pending navigations. Status: ok
+[94687:5471740:0102/124058.617441:INFO:CONSOLE:10540] "Uncaught NetworkError: Failed to execute 'send' on 'XMLHttpRequest': Failed to load 'https://events.launchdarkly.com/a/5992b42d19338d0af[1767337863.624][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND GetUrl {
+}
+[1767337863.625][INFO]: Waiting for pending navigations...
+[1767337863.625][INFO]: Done waiting for pending navigations. Status: ok
+[1767337863.627][INFO]: Waiting for pending navigations...
+[1767337863.627][INFO]: Done waiting for pending navigations. Status: ok
+[1767337863.627][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE GetUrl "https://central-supportdesk.kayako.com/agent/login"
+[1767337863.629][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337863.629][INFO]: Waiting for pending navigations...
+[1767337863.629][INFO]: Done waiting for pending navigations. Status: ok
+[1767337863.636][INFO]: Waiting for pending navigations...
+[1767337863.637][INFO]: Done waiting for pending navigations. Status: ok
+[1767337863.637][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337864.143][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337864.143][INFO]: Waiting for pending navigations...
+[1767337864.144][INFO]: Done waiting for pending navigations. Status: ok
+[1767337864.148][INFO]: Waiting for pending navigations...
+[1767337864.148][INFO]: Done waiting for pending navigations. Status: ok
+[1767337864.148][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337864.651][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337864.651][INFO]: Waiting for pending navigations...
+[1767337864.651][INFO]: Done waiting for pending navigations. Status: ok
+[1767337864.655][INFO]: Waiting for pending navigations...
+[1767337864.655][INFO]: Done waiting for pending navigations. Status: ok
+[1767337864.655][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337865.158][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337865.158][INFO]: Waiting for pending navigations...
+[1767337865.158][INFO]: Done waiting for pending navigations. Status: ok
+[1767337865.163][INFO]: Waiting for pending navigations...
+[1767337865.163][INFO]: Done waiting for pending navigations. Status: ok
+[1767337865.163][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337865.669][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337865.669][INFO]: Waiting for pending navigations...
+[1767337865.670][INFO]: Done waiting for pending navigations. Status: ok
+[1767337865.674][INFO]: Waiting for pending navigations...
+[1767337865.675][INFO]: Done waiting for pending navigations. Status: ok
+[1767337865.675][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337866.178][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337866.178][INFO]: Waiting for pending navigations...
+[1767337866.178][INFO]: Done waiting for pending navigations. Status: ok
+[1767337866.182][INFO]: Waiting for pending navigations...
+[1767337866.182][INFO]: Done waiting for pending navigations. Status: ok
+[1767337866.182][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337866.686][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337866.686][INFO]: Waiting for pending navigations...
+[1767337866.686][INFO]: Done waiting for pending navigations. Status: ok
+[1767337866.688][INFO]: Waiting for pending navigations...
+[1767337866.688][INFO]: Done waiting for pending navigations. Status: ok
+[1767337866.688][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337867.194][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337867.194][INFO]: Waiting for pending navigations...
+[1767337867.194][INFO]: Done waiting for pending navigations. Status: ok
+[1767337867.198][INFO]: Waiting for pending navigations...
+[1767337867.198][INFO]: Done waiting for pending navigations. Status: ok
+[1767337867.198][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337867.704][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337867.704][INFO]: Waiting for pending navigations...
+[1767337867.704][INFO]: Done waiting for pending navigations. Status: ok
+[1767337867.706][INFO]: Waiting for pending navigations...
+[1767337867.706][INFO]: Done waiting for pending navigations. Status: ok
+[1767337867.706][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337868.210][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337868.210][INFO]: Waiting for pending navigations...
+[1767337868.210][INFO]: Done waiting for pending navigations. Status: ok
+[1767337868.212][INFO]: Waiting for pending navigations...
+[1767337868.212][INFO]: Done waiting for pending navigations. Status: ok
+[1767337868.213][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337868.719][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337868.719][INFO]: Waiting for pending navigations...
+[1767337868.720][INFO]: Done waiting for pending navigations. Status: ok
+[1767337868.723][INFO]: Waiting for pending navigations...
+[1767337868.724][INFO]: Done waiting for pending navigations. Status: ok
+[1767337868.724][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337869.228][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337869.228][INFO]: Waiting for pending navigations...
+[1767337869.228][INFO]: Done waiting for pending navigations. Status: ok
+[1767337869.232][INFO]: Waiting for pending navigations...
+[1767337869.233][INFO]: Done waiting for pending navigations. Status: ok
+[1767337869.233][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337869.737][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337869.737][INFO]: Waiting for pending navigations...
+[1767337869.737][INFO]: Done waiting for pending navigations. Status: ok
+[1767337869.739][INFO]: Waiting for pending navigations...
+[1767337869.740][INFO]: Done waiting for pending navigations. Status: ok
+[1767337869.740][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337870.246][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337870.246][INFO]: Waiting for pending navigations...
+[1767337870.246][INFO]: Done waiting for pending navigations. Status: ok
+[1767337870.250][INFO]: Waiting for pending navigations...
+[1767337870.250][INFO]: Done waiting for pending navigations. Status: ok
+[1767337870.250][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+Created TensorFlow Lite XNNPACK delegate for CPU.
+[1767337870.753][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337870.753][INFO]: Waiting for pending navigations...
+[1767337870.753][INFO]: Done waiting for pending navigations. Status: ok
+[1767337870.755][INFO]: Waiting for pending navigations...
+[1767337870.755][INFO]: Done waiting for pending navigations. Status: ok
+[1767337870.755][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337871.262][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337871.262][INFO]: Waiting for pending navigations...
+[1767337871.262][INFO]: Done waiting for pending navigations. Status: ok
+[1767337871.266][INFO]: Waiting for pending navigations...
+[1767337871.266][INFO]: Done waiting for pending navigations. Status: ok
+[1767337871.266][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337871.770][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337871.770][INFO]: Waiting for pending navigations...
+[1767337871.770][INFO]: Done waiting for pending navigations. Status: ok
+[1767337871.774][INFO]: Waiting for pending navigations...
+[1767337871.775][INFO]: Done waiting for pending navigations. Status: ok
+[1767337871.775][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337872.278][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337872.278][INFO]: Waiting for pending navigations...
+[1767337872.278][INFO]: Done waiting for pending navigations. Status: ok
+[1767337872.281][INFO]: Waiting for pending navigations...
+[1767337872.281][INFO]: Done waiting for pending navigations. Status: ok
+[1767337872.281][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[94832:5473168:0102/124112.395462:VERBOSE1:chrome/updater/updater.cc:431] Version: 145.0.7569.0, opt, ARM_64, command line: /Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake-all --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[94832:5473168:0102/124112.395626:VERBOSE1:chrome/updater/updater.cc:434] OS version: 26.2.0, System uptime (seconds): 211564, parent pid: 94699
+[94832:5473168:0102/124112.397106:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS START event to the history log
+[94834:5473172:0102/124112.403683:VERBOSE1:chrome/updater/updater.cc:431] Version: 145.0.7569.0, opt, ARM_64, command line: /Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=145.0.7569.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[94834:5473172:0102/124112.404121:VERBOSE1:chrome/updater/updater.cc:434] OS version: 26.2.0, System uptime (seconds): 211564, parent pid: 1
+[94834:5473172:0102/124112.406203:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS START event to the history log
+[94832:5473168:0102/124112.406573:VERBOSE1:chrome/updater/crash_reporter.cc:122] Crash handler launched and ready.
+[94832:5473168:0102/124112.407054:VERBOSE1:chrome/updater/crash_client.cc:105] Found 0 completed crash reports
+[94832:5473168:0102/124112.407109:VERBOSE1:chrome/updater/crash_client.cc:123] Found 0 pending crash reports
+[94832:5473168:0102/124112.407157:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/santhosh.m/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)
+[94832:5473168:0102/124112.407189:VERBOSE1:chrome/updater/updater.cc:106] Crash reporting initialized.
+[94832:5473180:0102/124112.407399:VERBOSE1:chrome/updater/app/app_wakeall.cc:56] Launching `/Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake`
+[94835:5473184:0102/124112.414499:VERBOSE1:chrome/updater/updater.cc:431] Version: 145.0.7569.0, opt, ARM_64, command line: /Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[94835:5473184:0102/124112.414651:VERBOSE1:chrome/updater/updater.cc:434] OS version: 26.2.0, System uptime (seconds): 211564, parent pid: 94832
+[94835:5473184:0102/124112.416067:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS START event to the history log
+[94837:5473188:0102/124112.422335:VERBOSE1:chrome/updater/updater.cc:431] Version: 145.0.7569.0, opt, ARM_64, command line: /Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --crash-handler --database=/Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/Crashpad --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=145.0.7569.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[94837:5473188:0102/124112.422500:VERBOSE1:chrome/updater/updater.cc:434] OS version: 26.2.0, System uptime (seconds): 211564, parent pid: 1
+[94837:5473188:0102/124112.423949:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS START event to the history log
+[94835:5473184:0102/124112.424263:VERBOSE1:chrome/updater/crash_reporter.cc:122] Crash handler launched and ready.
+[94835:5473184:0102/124112.424768:VERBOSE1:chrome/updater/crash_client.cc:105] Found 0 completed crash reports
+[94835:5473184:0102/124112.424824:VERBOSE1:chrome/updater/crash_client.cc:123] Found 0 pending crash reports
+[94835:5473184:0102/124112.424872:ERROR:third_party/crashpad/crashpad/util/file/file_io_posix.cc:145] open /Users/santhosh.m/Library/Application Support/Google/RLZ/Crashpad/settings.dat: No such file or directory (2)
+[94835:5473184:0102/124112.424903:VERBOSE1:chrome/updater/updater.cc:106] Crash reporting initialized.
+[94835:5473184:0102/124112.425018:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:59] Run
+[1767337872.787][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337872.787][INFO]: Waiting for pending navigations...
+[1767337872.787][INFO]: Done waiting for pending navigations. Status: ok
+[1767337872.791][INFO]: Waiting for pending navigations...
+[1767337872.792][INFO]: Done waiting for pending navigations. Status: ok
+[1767337872.792][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337873.297][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337873.297][INFO]: Waiting for pending navigations...
+[1767337873.298][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.302][INFO]: Waiting for pending navigations...
+[1767337873.302][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.302][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337873.804][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337873.804][INFO]: Waiting for pending navigations...
+[1767337873.805][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.809][INFO]: Waiting for pending navigations...
+[1767337873.809][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.809][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337873.810][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND Screenshot {
+}
+[1767337873.810][INFO]: Waiting for pending navigations...
+[1767337873.811][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.847][INFO]: Waiting for pending navigations...
+[1767337873.847][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.848][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE Screenshot "iVBORw0KGgoAAAANSUhEUgAAB4AAAAOtCAIAAADvve9qAAAQAElEQVR4nOzdB3wb5d3A8efupNPyiBOPxM7eOyRksAl775aWllV2oYVSKKu8bAoUaBlllVH2XmXvPRNIQvbee9iOh7ZO7/90iet4JI5tBcv5fesa+XQ6nU5SPslPj59zHf3aRAUAAAAAAAAAQGtzK..."
+[1767337873.849][INFO]: [b5614f9a99ebecc7f27b1cce48212617] COMMAND Quit {
+}
+[1767337873.904][INFO]: [b5614f9a99ebecc7f27b1cce48212617] RESPONSE Quit
+[94835:5473184:0102/124150.870416:VERBOSE1:chrome/updater/app/app.cc:53] Shutdown: 0
+[94835:5473184:0102/124150.871532:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94835:5473184:0102/124150.871564:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--wake) returned 0.
+[94832:5473180:0102/124150.946794:VERBOSE1:chrome/updater/app/app_wakeall.cc:66] `/Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake` exited 0
+[94832:5473168:0102/124150.947055:VERBOSE1:chrome/updater/app/app.cc:53] Shutdown: 0
+[94832:5473168:0102/124150.947462:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94832:5473168:0102/124150.947485:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--wake-all) returned 0.
+[94837:5473188:0102/124624.467541:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94837:5473188:0102/124624.467781:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--crash-handler) returned 0.
+[94834:5473172:0102/124624.469597:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94834:5473172:0102/124624.469637:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--crash-handler) returned 0.
+.0.7499.170)
+[1767337873.512][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337873.512][INFO]: Waiting for pending navigations...
+[1767337873.512][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.514][INFO]: Waiting for pending navigations...
+[1767337873.515][INFO]: Done waiting for pending navigations. Status: ok
+[1767337873.515][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337874.020][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337874.021][INFO]: Waiting for pending navigations...
+[1767337874.022][INFO]: Done waiting for pending navigations. Status: ok
+[1767337874.028][INFO]: Waiting for pending navigations...
+[1767337874.029][INFO]: Done waiting for pending navigations. Status: ok
+[1767337874.029][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337874.534][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] COMMAND FindElement {
+   "using": "css selector",
+   "value": "[name=\"email\"]"
+}
+[1767337874.534][INFO]: Waiting for pending navigations...
+[1767337874.535][INFO]: Done waiting for pending navigations. Status: ok
+[1767337874.536][INFO]: Waiting for pending navigations...
+[1767337874.537][INFO]: Done waiting for pending navigations. Status: ok
+[1767337874.537][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] RESPONSE FindElement ERROR no such element: Unable to locate element: {"method":"css selector","selector":"[name="email"]"}
+  (Session info: chrome=143.0.7499.170)
+[1767337874.537][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] COMMAND Screenshot {
+}
+[1767337874.537][INFO]: Waiting for pending navigations...
+[1767337874.537][INFO]: Done waiting for pending navigations. Status: ok
+[1767337874.569][INFO]: Waiting for pending navigations...
+[1767337874.569][INFO]: Done waiting for pending navigations. Status: ok
+[1767337874.569][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] RESPONSE Screenshot "iVBORw0KGgoAAAANSUhEUgAAB4AAAAOtCAIAAADvve9qAAAQAElEQVR4nOzdBXwb593A8efupBMZ4sSQ2GHmNGmgKabMvHXrVloZtnZdu9L6lru2a7sVVoaVmVZmxqRN0jAzg+MYxDq9/9MlnmNIHNtKLef3nefKp9PpdJLySX56/JzrqNcnKAAAAAAAAAAAWppLA..."
+[1767337874.572][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] COMMAND Quit {
+}
+[1767337874.627][INFO]: [1ffa243f5d84d18b2f697838c1d5fafa] RESPONSE Quit
+[94823:5473130:0102/124124.706414:VERBOSE1:chrome/updater/app/app.cc:53] Shutdown: 0
+[94823:5473130:0102/124124.706647:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94823:5473130:0102/124124.706655:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--wake) returned 0.
+[94820:5473126:0102/124124.780676:VERBOSE1:chrome/updater/app/app_wakeall.cc:66] `/Users/santhosh.m/Library/Application Support/Google/GoogleUpdater/145.0.7569.0/GoogleUpdater.app/Contents/MacOS/GoogleUpdater --wake` exited 0
+[94820:5473114:0102/124124.780830:VERBOSE1:chrome/updater/app/app.cc:53] Shutdown: 0
+[94820:5473114:0102/124124.781081:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94820:5473114:0102/124124.781094:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--wake-all) returned 0.
+[94825:5473134:0102/124200.882157:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94825:5473134:0102/124200.882207:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--crash-handler) returned 0.
+[94822:5473118:0102/124200.883621:VERBOSE2:chrome/updater/event_history.cc:227] Emitted a UPDATER_PROCESS END event to the history log
+[94822:5473118:0102/124200.883654:VERBOSE1:chrome/updater/updater.cc:468] UpdaterMain (--crash-handler) returned 0.
