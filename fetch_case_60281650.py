@@ -9,7 +9,6 @@ import os
 from datetime import datetime
 
 # Kayako credentials
-<<<<<<< HEAD
 KAYAKO_USER = os.getenv('KAYAKO_USER')
 KAYAKO_PASSWORD = os.getenv('KAYAKO_PASSWORD')
 KAYAKO_API = 'https://central-supportdesk.kayako.com/api/v1'
@@ -21,13 +20,6 @@ if not KAYAKO_USER or not KAYAKO_PASSWORD:
     print("  export KAYAKO_USER='your.email@example.com'")
     print("  export KAYAKO_PASSWORD='your_password'")
     exit(1)
-
-=======
-KAYAKO_USER = os.getenv('KAYAKO_USER', 'santhosh.m@trilogy.com')
-KAYAKO_PASSWORD = os.getenv('KAYAKO_PASSWORD', 'Santhosh@96')
-KAYAKO_API = 'https://central-supportdesk.kayako.com/api/v1'
-
->>>>>>> a1cece83c1c45529121ad7175da172e41b249ccf
 def fetch_case_details(case_id):
     """Fetch detailed information for a specific case."""
     url = f"{KAYAKO_API}/cases/{case_id}.json"
