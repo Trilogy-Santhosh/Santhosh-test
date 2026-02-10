@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive Q&A</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .stats-bar {
+            background: white;
+            border-radius: 12px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message-user {
+            text-align: right;
+        }
+
+        .message-bubble {
+            display: inline-block;
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .message-user .message-bubble {
+            background: #667eea;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-assistant .message-bubble {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sources {
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-area input:focus {
+            border-color: #667eea;
+        }
+
+        .input-area button {
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        .input-area button:hover {
+            background: #5568d3;
+        }
+
+        .input-area button:active {
+            transform: scale(0.98);
+        }
+
+        .input-area button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 12px;
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-button:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .error {
+            background: #ff4444;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Google Drive Q&A</h1>
+            <p>Ask questions about your documents</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value" id="totalFiles">-</div>
+                <div class="stat-label">Documents</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="totalChunks">-</div>
+                <div class="stat-label">Chunks</div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="action-button" onclick="refreshStats()">Refresh Stats</button>
+            <button class="action-button" onclick="triggerIndex()">Re-index Documents</button>
+        </div>
+
+        <div id="errorContainer"></div>
+
+        <div class="chat-container">
+            <div class="messages" id="messages">
+                <div class="message message-assistant">
+                    <div class="message-bubble">
+                        Hello! I can help you find information from your Google Drive documents. Ask me anything!
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <input 
+                    type="text" 
+                    id="questionInput" 
+                    placeholder="Ask a question about your documents..."
+                    onkeypress="handleKeyPress(event)"
+                />
+                <button id="sendButton" onclick="askQuestion()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load stats on page load
+        refreshStats();
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                askQuestion();
+            }
+        }
+
+        async function refreshStats() {
+            try {
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+                
+                document.getElementById('totalFiles').textContent = data.total_files || 0;
+                document.getElementById('totalChunks').textContent = data.total_chunks || 0;
+            } catch (error) {
+                console.error('Error fetching stats:', error);
+            }
+        }
+
+        async function triggerIndex() {
+            if (!confirm('This will re-index all documents from Google Drive. Continue?')) {
+                return;
+            }
+
+            showError('Indexing started in background. This may take a few minutes...', false);
+            
+            try {
+                await fetch('/api/index', { method: 'POST' });
+                setTimeout(refreshStats, 5000);
+            } catch (error) {
+                showError('Error starting indexing: ' + error.message);
+            }
+        }
+
+        async function askQuestion() {
+            const input = document.getElementById('questionInput');
+            const question = input.value.trim();
+            
+            if (!question) return;
+
+            // Clear input and disable button
+            input.value = '';
+            const sendButton = document.getElementById('sendButton');
+            sendButton.disabled = true;
+            sendButton.innerHTML = 'Thinking<span class="loading"></span>';
+
+            // Add user message
+            addMessage(question, 'user');
+
+            try {
+                const response = await fetch('/api/query', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    const sources = data.sources.slice(0, 3).join(', ');
+                    addMessage(data.answer, 'assistant', sources);
+                } else {
+                    showError(data.error || 'Error processing question');
+                    addMessage('Sorry, I encountered an error processing your question.', 'assistant');
+                }
+            } catch (error) {
+                showError('Network error: ' + error.message);
+                addMessage('Sorry, I encountered a network error.', 'assistant');
+            } finally {
+                sendButton.disabled = false;
+                sendButton.textContent = 'Send';
+            }
+        }
+
+        function addMessage(text, type, sources = null) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message message-${type}`;
+            
+            let html = `<div class="message-bubble">${escapeHtml(text)}`;
+            
+            if (sources) {
+                html += `<div class="sources">Sources: ${escapeHtml(sources)}</div>`;
+            }
+            
+            html += '</div>';
+            messageDiv.innerHTML = html;
+            
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function showError(message, isError = true) {
+            const errorContainer = document.getElementById('errorContainer');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = isError ? 'error' : 'error' ;
+            errorDiv.style.background = isError ? '#ff4444' : '#4CAF50';
+            errorDiv.textContent = message;
+            
+            errorContainer.innerHTML = '';
+            errorContainer.appendChild(errorDiv);
+            
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML.replace(/\n/g, '<br>');
+        }
+    </script>
+</body>
+</html>

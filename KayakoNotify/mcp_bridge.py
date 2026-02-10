@@ -70,3 +70,5 @@ def fetch_and_push_cases():
 if __name__ == "__main__":
     fetch_and_push_cases()
 
+
+

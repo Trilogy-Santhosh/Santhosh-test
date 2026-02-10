@@ -166,3 +166,5 @@ Think of it as: **Selenium finds them, MCP enriches them.**
 
 **Questions? Check `MCP_INTEGRATION_GUIDE.md` for details!** 📚
 
+
+

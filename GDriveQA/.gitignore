@@ -1,0 +1,32 @@
+# Environment
+.env
+*.env
+
+# Google OAuth
+credentials.json
+token.pickle
+token.json
+
+# Storage
+storage/
+chroma_db/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -212,3 +212,5 @@ Your new MCP-based Kayako Dashboard Monitor is **running and tested**!
 
 Just fetch some real cases with the Kayako MCP and send them to the app using the POST endpoint. Let me know if you want help with that next step! 🎉
 
+
+
