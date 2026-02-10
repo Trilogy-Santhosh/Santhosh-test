@@ -213,3 +213,5 @@ You now have a **FULLY AUTOMATED** Kayako monitoring system!
 
 **Questions? Check `AUTO_MONITOR_GUIDE.md` for detailed documentation!**
 
+
+

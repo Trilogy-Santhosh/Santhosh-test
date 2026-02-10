@@ -296,3 +296,5 @@ templates/index_mcp.html
 
 **Everything happens automatically!** 🎊
 
+
+

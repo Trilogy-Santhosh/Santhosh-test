@@ -1,0 +1,1884 @@
+{
+  "case": {
+    "id": 60281650,
+    "legacy_id": null,
+    "subject": "Delete all content from closed user ",
+    "portal": "API",
+    "source_channel": {
+      "id": "6544d20c-1d9e-5c49-8d41-4c76332973ef",
+      "resource_type": "channel"
+    },
+    "last_public_channel": {
+      "id": "7f7d8a42-fc28-4cce-bbd2-3d2340f2857e",
+      "resource_type": "channel"
+    },
+    "requester": {
+      "id": 60471476,
+      "resource_type": "user"
+    },
+    "creator": {
+      "id": 60471476,
+      "resource_type": "user"
+    },
+    "identity": {
+      "id": 473005,
+      "resource_type": "identity_email"
+    },
+    "assigned_agent": null,
+    "assigned_team": {
+      "id": 4,
+      "resource_type": "team"
+    },
+    "last_assigned_by": {
+      "id": 1399,
+      "resource_type": "user"
+    },
+    "brand": {
+      "id": 60000199,
+      "resource_type": "brand"
+    },
+    "status": {
+      "id": 3,
+      "resource_type": "case_status"
+    },
+    "priority": {
+      "id": 3,
+      "resource_type": "case_priority"
+    },
+    "type": null,
+    "read_marker": {
+      "id": 444501,
+      "resource_type": "read_marker"
+    },
+    "sla_version": {
+      "id": 15,
+      "resource_type": "sla_version"
+    },
+    "sla_metrics": [
+      {
+        "id": 2147383,
+        "resource_type": "sla_metric"
+      },
+      {
+        "id": 2149598,
+        "resource_type": "sla_metric"
+      },
+      {
+        "id": 2157972,
+        "resource_type": "sla_metric"
+      }
+    ],
+    "form": {
+      "id": 257,
+      "resource_type": "case_form"
+    },
+    "custom_fields": [
+      {
+        "field": {
+          "id": 11,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 12,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 14,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 15,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 16,
+          "resource_type": "case_field"
+        },
+        "value": "7562",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 19,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 21,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 22,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 23,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 24,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 26,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 27,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 28,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 29,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 30,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 31,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 32,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 33,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 34,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 35,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 38,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 39,
+          "resource_type": "case_field"
+        },
+        "value": "yes",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 40,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 41,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 42,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 43,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 44,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 47,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 50,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 51,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 52,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 59,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 61,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 66,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 67,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 69,
+          "resource_type": "case_field"
+        },
+        "value": "1",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 70,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 71,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 76,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 77,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 78,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 80,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 81,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 82,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 83,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 93,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 95,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 96,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 97,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 98,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 101,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 114,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 122,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 123,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 124,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 127,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 128,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 129,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 142,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 145,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 159,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 165,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 177,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 185,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 191,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 194,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 196,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 202,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 208,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 210,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 223,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 225,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 238,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 255,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 257,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 262,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 294,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 296,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 299,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 315,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 316,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 325,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 344,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 356,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 357,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 358,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 368,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 372,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 373,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 400,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 407,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 409,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 410,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 416,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 417,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 428,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 441,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 459,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 460,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 472,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 473,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 485,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 488,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 494,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 495,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 496,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 500,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 501,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 502,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 504,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 505,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 506,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 507,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 510,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 512,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 514,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 516,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 523,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 526,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 527,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 528,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 530,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 533,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 534,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 535,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 540,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 541,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 542,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 543,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 544,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 546,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 547,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 593,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 594,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 596,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 597,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 598,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 601,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 607,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 608,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 609,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 610,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 611,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 612,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 613,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 614,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 615,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 616,
+          "resource_type": "case_field"
+        },
+        "value": "https://community.sony.ee",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 617,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 618,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 619,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 620,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 621,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 622,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 623,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 624,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 625,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 626,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 627,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 628,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 629,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 630,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 631,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 632,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 633,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 634,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 635,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 636,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 637,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 638,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 639,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 640,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 641,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 642,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      },
+      {
+        "field": {
+          "id": 643,
+          "resource_type": "case_field"
+        },
+        "value": "",
+        "resource_type": "case_field_value"
+      }
+    ],
+    "last_replier": {
+      "id": 60512164,
+      "resource_type": "user"
+    },
+    "last_replier_identity": {
+      "id": 537169,
+      "resource_type": "identity_email"
+    },
+    "last_updated_by": {
+      "id": 60512164,
+      "resource_type": "user"
+    },
+    "last_completed_by": null,
+    "last_closed_by": null,
+    "state": "ACTIVE",
+    "post_count": 6,
+    "has_notes": true,
+    "pinned_notes_count": 0,
+    "has_attachments": false,
+    "is_merged": false,
+    "rating": null,
+    "rating_status": "UNOFFERED",
+    "last_post_status": "DELIVERED",
+    "last_post_preview": "Hi Boti, Thank you for writing back to us.",
+    "last_post_type": "PUBLIC",
+    "last_message_preview": "Hi Boti, Thank you for writing back to us.",
+    "realtime_channel": "presence-9813ca639d37d1518f54b0c65e3b4bef061d5c9eb084715329b7324d129bf437@v1_cases_60281650",
+    "last_assigned_at": "2026-01-13T13:27:05+00:00",
+    "last_replied_at": "2026-01-14T07:53:07+00:00",
+    "last_opened_at": "2026-01-13T14:35:31+00:00",
+    "last_pending_at": "2026-01-14T07:53:06+00:00",
+    "last_closed_at": null,
+    "last_completed_at": null,
+    "last_agent_activity_at": "2026-01-14T07:53:07+00:00",
+    "last_customer_activity_at": "2026-01-13T14:35:31+00:00",
+    "organization": null,
+    "last_reply_by_agent_at": "2026-01-14T07:53:08+00:00",
+    "last_reply_by_requester_at": "2026-01-13T14:35:34+00:00",
+    "agent_updated_at": "2026-01-14T07:53:08+00:00",
+    "latest_assignee_update": null,
+    "created_at": "2026-01-12T16:00:45+00:00",
+    "updated_at": "2026-01-14T07:53:07+00:00",
+    "resource_type": "case",
+    "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/60281650"
+  },
+  "posts": [
+    {
+      "id": 25923659,
+      "uuid": "63c09045-e710-4556-883e-b362dba094cc",
+      "client_id": "b12f6c76-7bc2-4db9-a491-ea831b107ce3",
+      "subject": "Delete all content from closed user ",
+      "contents": "Hi Boti,\n\nThank you for writing back to us.\nWe would like to let you know that its recommended for the community admins/moderators to delete the users posts. We don\u2019t have access to the backend administrative controls for https://community.sony.ee/, so we\u2019re unable to delete the posts on your behalf. We recommend reaching out to your community administrator or moderator and requesting that they delete the two posts mentioned earlier. Please feel free to write back for any further clarification on this matter.\n\nBest regards,\nSanthosh M\nKhoros Community Classic Support Team\n\nThis ticket will stay open for one week unless you reply with \"This ticket can be closed\" or update the status to Completed in the portal. We will write to you again to remind you.",
+      "creator": {
+        "id": 60512164,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 537169,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "7f7d8a42-fc28-4cce-bbd2-3d2340f2857e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": "MAIL",
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9901519,
+        "resource_type": "case_message"
+      },
+      "post_status": "DELIVERED",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-14T07:53:21+00:00",
+      "is_requester": false,
+      "created_at": "2026-01-14T07:53:06+00:00",
+      "updated_at": "2026-01-14T07:53:21+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25923659"
+    },
+    {
+      "id": 25904121,
+      "uuid": "5f82c7bb-d61e-476e-89cf-e45203fd649c",
+      "client_id": "",
+      "subject": "Delete all content from closed user ",
+      "contents": "Dear Boti,\n\nThank you for your message and for clarifying your request regarding the content in the abuse report. Your concerns are noted and will be carefully reviewed.\n\nIf you have any further questions or need additional assistance, please let us know.\n\nSincerely, \nHermes \nKhoros Community Classic Support Team",
+      "creator": {
+        "id": 1457,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 1458,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "7f7d8a42-fc28-4cce-bbd2-3d2340f2857e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": "MAIL",
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9900478,
+        "resource_type": "case_message"
+      },
+      "post_status": "DELIVERED",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-13T18:00:47+00:00",
+      "is_requester": false,
+      "created_at": "2026-01-13T18:00:30+00:00",
+      "updated_at": "2026-01-13T18:00:47+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25904121"
+    },
+    {
+      "id": 25892970,
+      "uuid": "075c7e7d-68ef-427f-b2ca-613f1264b325",
+      "client_id": "",
+      "subject": "RE: Delete all content from closed user",
+      "contents": " \n\nThank you for the reply.\n\n\u00a0\n\nThe \u2019abuse report\u2019 part is an internal escalation too, so please delete it with the aforementioned thread.\n\n\u00a0\n\nThanks!\n\n\u00a0\n\nBest,\n\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Boti\n\n\u00a0\n\nGergely Botond\n\nAssistant Manager \u2013 Social Media Support\n\nMarketing Support Operations\n\n\u00a0\n\n\u00a0\n\nSony Europe B.V.\n\n\u00a0\n\nMobile: +36 70\u00a0646 1385\n\n\u00a0\n\n \n",
+      "creator": {
+        "id": 60471476,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 473005,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "7f7d8a42-fc28-4cce-bbd2-3d2340f2857e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": null,
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9899848,
+        "resource_type": "case_message"
+      },
+      "post_status": "SEEN",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-13T18:00:32+00:00",
+      "is_requester": true,
+      "created_at": "2026-01-13T14:35:31+00:00",
+      "updated_at": "2026-01-13T18:00:32+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25892970"
+    },
+    {
+      "id": 25891499,
+      "uuid": "02267fda-33c1-45ba-90bd-e7f95c07ad3a",
+      "client_id": "33788376-d126-4894-802c-6ed2d455e475",
+      "subject": "Delete all content from closed user ",
+      "contents": "Hi Botond,\n\nThank you for contacting Khoros Community Support. I hope you are doing great!\nUpon further investigation and reviewing the backend database, here are our findings:\n\n\t* The user 'Synformant' is linked to UserID: 1003918231 (already deleted)\n\t* As per the database, there are only 2 posts made by the user: https://community.sony.ee/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231 and the other with the message ID '3985613'. Further checking the message ID 3985613- this post is present in the 'abusereports' node.\n\t* Other than the two posts mentioned above, we could not locate any other posts/replies tied to that userID.\n\nPlease feel free to write back for any further clarification on this matter.\n\nBest regards,\nSanthosh M\nKhoros Community Classic Support Team\n\nThis ticket will stay open for one week unless you reply with \"This ticket can be closed\" or update the status to Completed in the portal. We will write to you again to remind you.",
+      "creator": {
+        "id": 60512164,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 537169,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "7f7d8a42-fc28-4cce-bbd2-3d2340f2857e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": "MAIL",
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9899775,
+        "resource_type": "case_message"
+      },
+      "post_status": "SEEN",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-13T14:33:46+00:00",
+      "is_requester": false,
+      "created_at": "2026-01-13T14:10:30+00:00",
+      "updated_at": "2026-01-13T14:33:46+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25891499"
+    },
+    {
+      "id": 25891214,
+      "uuid": "86cf2583-d59c-41da-a03e-9ddd48705710",
+      "client_id": "70639420-20eb-4de1-a7f0-98901d6557c3",
+      "subject": " Details fetched from the DB: \n\n UserID: 1003918231 (Is already deleted) \n As seen on the message2 table, the user has only 2 posts: https://community.sony.ee/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231 and the other post with ID #3985613 p...",
+      "contents": " Details fetched from the DB: \n\n UserID: 1003918231 (Is already deleted) \n As seen on the message2 table, the user has only 2 posts: https://community.sony.ee/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231 and the other post with ID #3985613 present in node '1318' which is the 'abusereports' board. \n\n Even the replies would be present on the same table but there are none except the posts IDs mentioned above. ",
+      "creator": {
+        "id": 60512164,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 537169,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "5c58f3da-c1c3-5410-b2d3-f334d30b144e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": null,
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9437158,
+        "resource_type": "note"
+      },
+      "post_status": "DELIVERED",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-13T14:06:02+00:00",
+      "is_requester": false,
+      "created_at": "2026-01-13T14:06:02+00:00",
+      "updated_at": "2026-01-13T14:06:02+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25891214"
+    },
+    {
+      "id": 25862408,
+      "uuid": "c3d24a83-19ac-4c0a-8beb-d85752c63d8a",
+      "client_id": "",
+      "subject": "Delete all content from closed user ",
+      "contents": "Dear Botond,\n\nThank you for reaching out and providing detailed information regarding the request to delete all content associated with the closed account \"Synformant.\" I understand the importance of ensuring that user content is managed according to their wishes.\n\nYour request and the examples provided will be carefully reviewed. If any additional information is needed, we will contact you.\n\nSincerely, \nHermes \nKhoros Community Classic Support Team",
+      "creator": {
+        "id": 1457,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 1458,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "7f7d8a42-fc28-4cce-bbd2-3d2340f2857e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": "MAIL",
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9898224,
+        "resource_type": "case_message"
+      },
+      "post_status": "SEEN",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-13T14:33:46+00:00",
+      "is_requester": false,
+      "created_at": "2026-01-12T19:45:29+00:00",
+      "updated_at": "2026-01-13T14:33:46+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25862408"
+    },
+    {
+      "id": 25852413,
+      "uuid": "43c95fe0-e6a2-44d4-b55b-312f76ca6e93",
+      "client_id": "",
+      "subject": "<cc_ignore> \n\n\ud83c\udfaf COMPONENT & ROUTING INFORMATION\n\nComponent: Moderation - Community [https://atlas-ticket.csaiautomations.com/components/4365]\n\nDescription: Issues regarding content filters, spam filters, smut filters, removing or moving posts, spam quaran...",
+      "contents": "<cc_ignore> \n\n\ud83c\udfaf COMPONENT & ROUTING INFORMATION\n\nComponent: Moderation - Community [https://atlas-ticket.csaiautomations.com/components/4365]\n\nDescription: Issues regarding content filters, spam filters, smut filters, removing or moving posts, spam quarantine for admins, Approving or denying public posts, marking all users posts as spam, and handling abuse reports within the community. This includes problems with abuse reports such as missing, not visible, or unprocessed abuse reports (including those submitted anonymously), issues with viewing or managing abuse report notifications, or general difficulties in the moderation workflow related to abuse and inappropriate content reporting. Also covers cases where moderation/content filters (e.g., SMUT filters) inadvertently block user registration or sign-in because a username, first/last name, or email matches a filter pattern, resulting in login loops, redirects (e.g., Page not found), or access denied during authentication\n\nRoute: L1\n\n\ud83d\udcdd Component match feedback can be provided here [https://docs.google.com/forms/d/e/1FAIpQLSfPDHER45hDaUWVO0mpqr0t64JMGO5nZq0m5nqeuRUrlGRRAQ/viewform?usp=dialog]\n</cc_ignore>",
+      "creator": {
+        "id": 23,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 24,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "5c58f3da-c1c3-5410-b2d3-f334d30b144e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": null,
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9433965,
+        "resource_type": "note"
+      },
+      "post_status": "DELIVERED",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-12T16:01:24+00:00",
+      "is_requester": false,
+      "created_at": "2026-01-12T16:01:24+00:00",
+      "updated_at": "2026-01-12T16:01:24+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25852413"
+    },
+    {
+      "id": 25852380,
+      "uuid": "5233ea80-1668-4758-8c8a-5c5f9339fa54",
+      "client_id": "",
+      "subject": "Here is a transcript of the customer's recent interaction with ATLAS chat:\n\n--- AI Assistant ---\n\n Hi, Botond Csaba Gergely ! \ud83d\udc4b\n\nThis is the Khoros Classic AI Support Agent \ud83e\udd16. \n-------------------------\n\n Please note: The AI Support Agent is very smart an...",
+      "contents": "Here is a transcript of the customer's recent interaction with ATLAS chat:\n\n--- AI Assistant ---\n\n Hi, Botond Csaba Gergely ! \ud83d\udc4b\n\nThis is the Khoros Classic AI Support Agent \ud83e\udd16. \n-------------------------\n\n Please note: The AI Support Agent is very smart and helpful, but like any GenAI assistant, he may provide incorrect responses from time to time. By chatting with him, you're agreeing to these terms and conditions [https://chatbotterms.trilogy.com/].\nIf you're unable to find a solution through our interaction, you will be guided through the steps to get additional support. \n\n--- AI Assistant ---\n\n Walk me through what's happening or select from the below frequent requests.\n\nDon't hold back on the details \u2013 the more you can share about the issue, any error messages you're seeing, or steps you've already tried, the better equipped I'll be to assist you. \ud83d\udcaa\n\n\ud83d\udca1Tip: Aim to give us a bit more context than just a quick It's not working. The more specific you can be, the faster we can get to a solution! \ud83d\udd75\ufe0f\u200d\u2640\ufe0f\ud83d\udee0\ufe0f\n\n\ud83d\udca1Getting the most out of Khoros Classic AI Support Agent [https://khoros-classic.kayako.com/article/128087]\n\nIf I'm unable to help you, I can patch you through to a Live agent, along with the information you supply to me during this session, so that our team has something to work with from the get-go. \n\n--- Customer (Botond Csaba Gergely) ---\n\n My team closed a Community profile per the user's request, but it turns out that he wants all of their posts, topics, replies deleted too after the fact. How can we delete their content after the fact? We can't search for their profile anymore \n\n--- AI Assistant ---\n\n If you have any \ud83d\udcc3 log files or \ud83d\uddbc\ufe0f screenshots to upload to help with the troubleshooting, now is the time to do it \ud83d\udcaa\n\n\u2139\ufe0f When you select to upload files, a new window will open to our secure portal allowing you to upload the attachments.\n\n\u2139\ufe0f When you are done uploading files, come back to this window to continue the flow.\n\n\u2139\ufe0f In case it doesn't automatically open, here is the direct URL for it:\n\ud83d\udc49 Secure File Upload [https://files.eswsecuretransfers.com/customers?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uX3V1aWQiOiI5NDljMzE2OS1mYThjLTQwZmYtYWViNi1jZDhmMTBjZmQ2YjIiLCJzZXNzaW9uX3VpZCI6Ijk0OWMzMTY5LWZhOGMtNDBmZi1hZWI2LWNkOGYxMGNmZDZiMiIsImVtYWlsIjoiYm90b25kY3NhYmEuZ2VyZ2VseUBzb255LmNvbSIsImN1c3RvbV9wYXJzZXIiOnt9LCJjYWxsYmFjayI6eyJjYWxsYmFja191cmwiOm51bGwsImNhbGxiYWNrX2VtYWlsIjoiY2lwcmlhbi5uYXN0YXNlQHRyaWxvZ3kuY29tIn0sInByb2R1Y3RfdGFnIjoia2hvcm9zX2NsYXNzaWMiLCJxdWVyeSI6IiIsImV4cCI6MTc2ODI0MDQ3Nn0.dWwze6LADQfg658aYowEHtfVSsxk2Cb7jq7ViKMSO1Q]\n\nYou should see the following:\n\n \t* User: botondcsaba.gergely@sony.com\n \t* Session ID: 949c3169-fa8c-40ff-aeb6-cd8f10cfd6b2\n\n--- Customer (Botond Csaba Gergely) ---\n\n No screenshot.\n\nAdditional information: This is an example of a post from the closed account: https://community.sony.hu/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231\n\nThis is the account name: Synformant\nThis is the email address formerly connected with the closed account: mailto:marvin-gay.hueckels@outlook.com \n\n--- AI Assistant ---\n\n I understand the situation \u2013 the user's account has been closed, but their content is still visible and they want it removed. Let me explain what's happening and how to address this.\n\nWhen an account is closed in Khoros Classic, the behavior depends on whether GDPR is enabled for your community:\n\nIf GDPR is enabled:\n\n \t* Personal information is deleted and anonymized\n \t* Posts and content are associated with an Anonymous user account\n \t* The username is freed up\n\nIf GDPR is NOT enabled:\n\n \t* The user's content (posts, topics, replies) remains associated with their profile\n \t* The content is NOT automatically deleted\n\nBased on what you're describing, it sounds like the account was closed but the content wasn't removed. Here's what you need to know:\n\nTo delete the content after the account is already closed:\n\nSince the profile has been closed and you can no longer search for it through normal means, you'll need to manually delete the individual posts. However, this can be challenging if you can't access the user profile anymore.\n\nYour options:\n\n \t* Use the direct post URLs - Since you have an example post URL (https://community.sony.hu/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231), you can navigate to each piece of content and delete it individually if you have the appropriate admin permissions.\n\n \t* Contact Support for bulk deletion - Given that you can't search for the closed profile anymore and likely need to remove multiple pieces of content, I'd recommend connecting with our Support team who can help with bulk content deletion using the user's email address or user ID.\n\nWould you like me to connect you with a live agent who can assist with the bulk deletion of this user's content? \n\n--- Customer (Botond Csaba Gergely) ---\n\n Yes \n\n--- AI Assistant ---\n\n Thanks for confirming! A human colleague will be happy to assist you further with this \u2014 please feel free to choose from the available options to continue. \ud83d\ude0a \n\n--- Customer (Botond Csaba Gergely) ---\n\n Button selection: [\ud83d\udce9 Raise a ticket] \n\n--- AI Assistant ---\n\n Perfect! Let me gather the information you've already provided so we can create a support ticket with all the details.\n\nBefore I submit your ticket, I need to confirm your Khoros instance URL to ensure the ticket is routed correctly to your community.\n\nBased on the post URL you shared (https://community.sony.hu/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231), is your instance URL:\n\nhttps://community.sony.hu\n\nIs that correct? \n\n--- Customer (Botond Csaba Gergely) ---\n\n The original link is https://community.sony(.)ee/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231 \n\n--- AI Assistant ---\n\n Thank you for the correction! So your instance URL is:\n\nhttps://community.sony.ee\n\nIs that correct? \n\n--- Customer (Botond Csaba Gergely) ---\n\n yes \n\n--- AI Assistant ---\n\n I've noted down your base instance URL\ud83d\udd17: https://community.sony.ee \n\n--- AI Assistant ---\n\n Please provide any other additional details we might need to investigate and resolve your issue.\n\nYou can use Shift+Enter if you want to continue typing in a new line.\n\nFor now, I am unable to take any file uploads, so any relevant log files or attachments can be provided directly in the ticket once I create it for you.\n\n \ud83d\udccc Important: Your ticket will be created in one of two ways:\n\n\t* Immediately after you provide the requested information above, or\n\n\t* Automatically after 5 minutes if no response is received\n\nPlease keep this browser/chat window open until you receive your ticket number as confirmation. \n\n--- Customer (Botond Csaba Gergely) ---\n\n Additional information: This is an example of a post from the closed account: https://community.sony.ee/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231\nThis is the account name: Synformant\nThis is the email address formerly connected with the closed account: marvin-gay.hueckels@outlook.com\n\nWe need all of his content deleted \n\n--- AI Assistant ---\n\n If you want to add additional \ud83d\udce7 email addresses in the ticket CC, please specify them below.\n\nYou can specify multiple email addresses, separated by a comma (for example: test@example.com, test2@example.com)\n\nOtherwise, just click the button \ud83d\udc47 \n\n--- Customer (Botond Csaba Gergely) ---\n\n SQECTPSocialMediaReviewCommunityMgt@sony.com \n\n--- AI Assistant ---\n\n \ud83d\udc4c Got it!\n\nThese email addresses will be added to the ticket CC: SQECTPSocialMediaReviewCommunityMgt@sony.com \n\n--- AI Assistant ---\n\n I've automatically set the ticket subject to: Delete all content from closed user Synformant\n\nDoes that work for you?\n\n \t* If it does, simply say YES or use the below button to confirm \ud83d\udc47\n \t* If not, please directly type in the ticket subject of your choosing below \ud83d\ude09\n\n--- Customer (Botond Csaba Gergely) ---\n\n Button selection: [No, I want to type in the subject myself] \n\n--- AI Assistant ---\n\n \u2328\ufe0f Type in the desired subject below: \n",
+      "creator": {
+        "id": 23,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 24,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "5c58f3da-c1c3-5410-b2d3-f334d30b144e",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": null,
+      "source": null,
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9433960,
+        "resource_type": "note"
+      },
+      "post_status": "DELIVERED",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-12T16:00:53+00:00",
+      "is_requester": false,
+      "created_at": "2026-01-12T16:00:53+00:00",
+      "updated_at": "2026-01-12T16:00:53+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25852380"
+    },
+    {
+      "id": 25852369,
+      "uuid": "4407163e-2d38-4ae9-b53e-a664e58f4078",
+      "client_id": "",
+      "subject": "Delete all content from closed user",
+      "contents": "--- Ticket generated by Khoros Classic AI chat on behalf of Botond Csaba Gergely - <a href=\"mailto:botondcsaba.gergely@sony.com\" rel=\"nofollow\">botondcsaba.gergely@sony.com</a> ---<br>\n  <br>\n  <b>Issue/request description:</b>\n  <ul>\n    <li>My team closed a Community profile per the user's request, but it turns out that he wants all of their posts, topics, replies deleted too after the fact. How can we delete their content after the fact? We can't search for their profile anymore</li>\n    <li>No screenshot.<br>\n    <br>\n    Additional information: This is an example of a post from the closed account: https://community.sony.hu/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231<br>\n    <br>\n    This is the account name: Synformant<br>\n    This is the email address formerly connected with the closed account: mailto:marvin-gay.hueckels@outlook.com</li>\n    <li>Yes</li>\n    <li>The original link is https://community.sony(.)ee/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231</li>\n    <li>yes</li>\n    <li>Additional information: This is an example of a post from the closed account: https://community.sony.ee/t5/tragbare-audiogerate/headphones-connect-eq/td-p/3821231<br>\n    This is the account name: Synformant<br>\n    This is the email address formerly connected with the closed account: marvin-gay.hueckels@outlook.com<br>\n    <br>\n    We need all of his content deleted</li>\n  </ul><br>\n  <br>\n  <b>Khoros Instance Details:</b><br>\n  <ul>\n    <li>\n      <b>Instance URL:</b> <a href=\"https://community.sony.ee\" rel=\"nofollow\">https://community.sony.ee</a>\n    </li>\n  </ul><br>",
+      "creator": {
+        "id": 60471476,
+        "resource_type": "user"
+      },
+      "identity": {
+        "id": 473005,
+        "resource_type": "identity_email"
+      },
+      "source_channel": {
+        "id": "0fafe774-f70a-551b-8ab6-74040c2c5a3a",
+        "resource_type": "channel"
+      },
+      "attachments": [],
+      "download_all": null,
+      "destination_medium": null,
+      "source": "API",
+      "metadata": {
+        "user_agent": "",
+        "page_url": ""
+      },
+      "original": {
+        "id": 9897748,
+        "resource_type": "case_message"
+      },
+      "post_status": "SEEN",
+      "post_status_reject_type": null,
+      "post_status_reject_reason": null,
+      "post_status_updated_at": "2026-01-12T16:00:54+00:00",
+      "is_requester": true,
+      "created_at": "2026-01-12T16:00:45+00:00",
+      "updated_at": "2026-01-12T16:00:54+00:00",
+      "resource_type": "post",
+      "resource_url": "https://central-supportdesk.kayako.com/api/v1/cases/posts/25852369"
+    }
+  ]
+}
