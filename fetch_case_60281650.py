@@ -9,9 +9,17 @@ import os
 from datetime import datetime
 
 # Kayako credentials
-KAYAKO_USER = os.getenv('KAYAKO_USER', 'santhosh.m@trilogy.com')
-KAYAKO_PASSWORD = os.getenv('KAYAKO_PASSWORD', '***REMOVED***')
+KAYAKO_USER = os.getenv('KAYAKO_USER')
+KAYAKO_PASSWORD = os.getenv('KAYAKO_PASSWORD')
 KAYAKO_API = 'https://central-supportdesk.kayako.com/api/v1'
+
+# Validate required environment variables
+if not KAYAKO_USER or not KAYAKO_PASSWORD:
+    print("Error: KAYAKO_USER and KAYAKO_PASSWORD environment variables must be set")
+    print("\nPlease set them with:")
+    print("  export KAYAKO_USER='your.email@example.com'")
+    print("  export KAYAKO_PASSWORD='your_password'")
+    exit(1)
 
 def fetch_case_details(case_id):
     """Fetch detailed information for a specific case."""

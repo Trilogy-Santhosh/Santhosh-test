@@ -1,0 +1,63 @@
+# Credentials and Secrets
+*.env
+.env
+.env.*
+!.env.example
+set_env.sh
+credentials.json
+secrets.json
+config.json
+*_credentials.json
+*_secrets.json
+
+# API Keys and Tokens
+*_token.txt
+*_key.txt
+*.pem
+*.key
+*.cert
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+*.log.*
+logs/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# OS
+.DS_Store
+Thumbs.db
