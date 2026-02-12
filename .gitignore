@@ -17,6 +17,22 @@ config.json
 *.key
 *.cert
 
+# Metis-specific sensitive files
+Metis/set_env.sh
+Metis/*_test*.sh
+Metis/*_test*.py
+Metis/test_*.sh
+Metis/test_*.py
+Metis/*STATUS*.md
+Metis/*STATUS*.txt
+Metis/*COMPLETE*.txt
+Metis/*COMPLETE*.md
+Metis/*FIX*.txt
+Metis/*FIX*.md
+Metis/debug_*.py
+Metis/emergency_*.py
+Metis/diagnostic_*.py
+
 # Python
 __pycache__/
 *.py[cod]
